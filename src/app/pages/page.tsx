@@ -1,7 +1,6 @@
 
 import React from 'react';
 import Head from 'next/head';
-import '..src/app/global.css'; 
 
 const Home = () => {
   return (

@@ -1,9 +1,9 @@
 
 import React from 'react';
 import Head from 'next/head';
-import '..src/app/global.css'; 
+//import '..src/app/global.css'; 
 
-const Home = () => {
+const LogIn = () => {
   return (
     <div className="container" id="container">
       <Head>
@@ -65,4 +65,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default LogIn;
