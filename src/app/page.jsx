@@ -1,16 +1,38 @@
+'use client'
+import React, { useEffect } from "react";
+import './style.css';
+import logoImage from './images.jpg';
+import { Image } from "next/dist/client/image-component";
 
-import React from 'react';
-import Head from 'next/head';
 
 const Home = () => {
+  useEffect(() => {
+    const container = document.getElementById('container');
+    const registerBtn = document.getElementById('register');
+    const loginBtn = document.getElementById('login');
+
+    const handleRegisterClick = () => {
+      container.classList.add("active");
+    };
+
+    const handleLoginClick = () => {
+      container.classList.remove("active");
+    };
+
+   registerBtn.addEventListener('click', handleRegisterClick);
+    loginBtn.addEventListener('click', handleLoginClick);
+
+    return () => {
+      registerBtn.removeEventListener('click', handleRegisterClick);
+      loginBtn.removeEventListener('click', handleLoginClick);
+    };
+  }, []);
+
   return (
     <div className="container" id="container">
-      <Head>
-        <title>Log In Sample</title>
-      </Head>
       <div className="form-container sign-up">
         <form>
-          <h1>Create Account</h1>
+          <h1>Create an Account</h1>
           <span>Use your email for registration</span>
           <input type="text" placeholder="Name" />
           <input type="email" placeholder="Email" />
@@ -23,19 +45,21 @@ const Home = () => {
             <option value="must">Malawi University of Science and Technology</option>
             <option value="com">College of medicine</option>
           </select>
-          <button>Sign Up</button>
+          <button type="submit" className="button">Create account</button>
+          <button className="hidden" id="register1">Sign Up</button>
         </form>
       </div>
       <div className="form-container sign-in">
         <form>
           <div className="login-header">
-            <img src="images.jpg" alt="Logo" className="logo-login" />
+            <Image src={logoImage} width={245} height={197} alt="Logo"/>
             <h2>SFMIS - Login</h2>
           </div>
           <span>Use your email password</span>
           <input type="email" placeholder="Email" />
           <input type="password" placeholder="Password" />
           <a href="#">Forget your password?</a>
+          <a href="#" className="hidden" id="register3">create account</a>
           <button>Sign In</button>
           <div className="text-center">
             <p>© 2023 Higher Education Students' Grants & Loans Board</p>
