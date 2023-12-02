@@ -1,4 +1,5 @@
 'use client'
+
 import React, { useEffect } from "react";
 import './style.css';
 import logoImage from './images.jpg';
@@ -13,7 +14,7 @@ const Home = () => {
     const createAcc = document.getElementById('register3');
     const loginBtn = document.getElementById('login');
     const loginBt = document.getElementById('login1');
-
+    
     const handleRegisterClick = () => {
       container.classList.add("active");
     };

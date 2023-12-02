@@ -23,6 +23,7 @@ body {
     width: 70%;
     min-height: 580px;
     display: flex;
+    max-width: 480;
 }
 .container p {
     font-size: 14px;
@@ -109,7 +110,7 @@ body {
     z-index: 2;
 }
 .container.active .sign-up {
-    transform: translateX(0%);
+    transform: translateX(100%);
   
 }
 @keyframes move {
@@ -183,6 +184,19 @@ body {
 }
 
 @media only screen and (max-width: 600px) {
+    [class*="container"] {
+        width: 100%;
+    }
+    .container option{
+        background-color: #eee;
+        border: none;
+        margin: 6px 0;
+        padding: 7px 12px;
+        font-size: 10px;
+        border-radius: 8px;
+        width: 30%;
+        outline: none; 
+      }
    .sign-up{
     font-size: 70%;
     left: 0;
@@ -205,6 +219,10 @@ body {
         left: 0;
         width: 100%; 
         z-index: 2;
+    }
+    .container.active .sign-up {
+        transform: translateX(0%);
+      
     }
     .toggle-panel.toggle-left {
         position: absolute;
