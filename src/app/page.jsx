@@ -3,13 +3,16 @@ import React, { useEffect } from "react";
 import './style.css';
 import logoImage from './images.jpg';
 import { Image } from "next/dist/client/image-component";
+import Link from "next/link";
 
 
 const Home = () => {
   useEffect(() => {
     const container = document.getElementById('container');
     const registerBtn = document.getElementById('register');
+    const createAcc = document.getElementById('register3');
     const loginBtn = document.getElementById('login');
+    const loginBt = document.getElementById('login1');
 
     const handleRegisterClick = () => {
       container.classList.add("active");
@@ -21,35 +24,42 @@ const Home = () => {
 
    registerBtn.addEventListener('click', handleRegisterClick);
     loginBtn.addEventListener('click', handleLoginClick);
+    createAcc.addEventListener('click', handleRegisterClick);
+    loginBt.addEventListener('click', handleLoginClick);
 
     return () => {
       registerBtn.removeEventListener('click', handleRegisterClick);
       loginBtn.removeEventListener('click', handleLoginClick);
+      createAcc.removeEventListener('click', handleRegisterClick);
+      loginBt.removeEventListener('click', handleLoginClick);
     };
   }, []);
 
   return (
     <div className="container" id="container">
-      <div className="form-container sign-up">
+      <div className="form-container sign-up" id="signup">
         <form>
           <h1>Create an Account</h1>
           <span>Use your email for registration</span>
           <input type="text" placeholder="Name" />
+          <input type="text" placeholder="RegNo" />
           <input type="email" placeholder="Email" />
           <input type="password" placeholder="Password" />
           <select id="uni" name="university">
-            <option value="Unima">University Of Malawi</option>
-            <option value="MUBAS">Malawi University of Business and Applied Sciences</option>
-            <option value="Bunda">Lilongwe University of Agriculture and Natural Resources</option>
-            <option value="mzuni">Mzuzu University </option>
-            <option value="must">Malawi University of Science and Technology</option>
-            <option value="com">College of medicine</option>
+            <option id="Unima">University Of Malawi</option>
+            <option id="MUBAS">Malawi University of Business and Applied Sciences</option>
+            <option id="Bunda">Lilongwe University of Agriculture and Natural Resources</option>
+            <option id="mzuni">Mzuzu University </option>
+            <option id="must">Malawi University of Science and Technology</option>
+            <option id="com">College of medicine</option>
           </select>
-          <button type="submit" className="button">Create account</button>
+
+          <button  className="button" id="login1">Create account</button>
+
           <button className="hidden" id="register1">Sign Up</button>
         </form>
       </div>
-      <div className="form-container sign-in">
+      <div className="form-container sign-in" id="signin">
         <form>
           <div className="login-header">
             <Image src={logoImage} width={245} height={197} alt="Logo"/>

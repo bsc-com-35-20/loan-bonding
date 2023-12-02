@@ -39,6 +39,7 @@ body {
     text-decoration: none;
     margin: 15px 0 10px;
 }
+
 .container button {
     background-color: #a8832d;
     color: #fff;
@@ -55,15 +56,6 @@ body {
 .container button.hidden {
     background-color: transparent;
     border-color: white;
-}
-.container form {
-    background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 0 40px;
-    height: 100%;
 }
 .container input {
     background-color: #eee;
@@ -114,13 +106,11 @@ body {
     left: 0;
     width: 50%;
     opacity: 0;
-    z-index: 1;
+    z-index: 2;
 }
 .container.active .sign-up {
-    transform: translateX(100%);
-    opacity: 1;
-    z-index: 5;
-    animation: move 0.6s;
+    transform: translateX(0%);
+  
 }
 @keyframes move {
     0%,
@@ -180,44 +170,55 @@ body {
     transition: all 0.6s ease-in-out;
 }
 .toggle-left {
-    transform: translateX(-200%);
+    transform: translateX(0);
 }
 .container.active .toggle-left {
     transform: translateX(0);
 }
 .toggle-right {
-    right: 0;
     transform: translateX(0);
 }
 .container.active .toggle-right {
-    transform: translateX(200%);
+    transform: translateX(0);
 }
-@media only screen and (max-width: 768px) {
-    [class*="container"] {
-      width: 100%;
-    }
-    
-    .toggle-container {
-        position: absolute;
-        top: 0%;
-        left: 0%;
-        width: 0;
-        height: 0%;
-        overflow: hidden;
-        transition: all 0.6s ease-in-out;
-        border-radius: 150px 0 0 100px;
-        z-index: 1000;
-    }
-    .sign-up {
-        left: 0;
-        width: 50%;
-        opacity: 0;
-        z-index: 1;
-    }
-    
+
+@media only screen and (max-width: 600px) {
+   .sign-up{
+    font-size: 70%;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    z-index: 2;
+   }
+   .toggle-container {
+    position: absolute;
+    top: 0;
+    left: 0%;
+    width: 0%;
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.6s ease-in-out;
+    border-radius: 150px 0 0 100px;
+    z-index: 1000;
+}
     .sign-in {
-       left: 0;
-       width: 100%;
-       z-index: 2;
-        }
+        left: 0;
+        width: 100%; 
+        z-index: 2;
+    }
+    .toggle-panel.toggle-left {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center; 
+        flex-direction: column;
+        padding: 0 30px;
+        text-align: center;
+        top: 0;
+        transform: translateX(0);
+        transition: all 0.6s ease-in-out;
+    }
+    
 }
