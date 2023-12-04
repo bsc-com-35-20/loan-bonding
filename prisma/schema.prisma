@@ -1,0 +1,64 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Account {
+  id                String @id @default(auto()) @map("_id") @db.ObjectId
+  /// Field referred in an index, but found no data to define the type.
+  provider          Json?
+  /// Field referred in an index, but found no data to define the type.
+  providerAccountId Json?
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String @id @default(auto()) @map("_id") @db.ObjectId
+  /// Field referred in an index, but found no data to define the type.
+  sessionToken Json?  @unique
+}
+
+model User {
+  id           String @id @default(auto()) @map("_id") @db.ObjectId
+  passwordHash String
+  email        String @unique
+  name         String
+  universityId Int
+  regNumber    String @unique
+  
+}
+
+model University {
+  id       String    @id @map("_id")
+  name     String
+  location String
+  students Student[]
+}
+
+// Define the Student model
+model Student {
+  id            Int        @id @map("_id")
+  firstName     String
+  lastName      String
+  universityId  String  
+  regNumber     Int
+  university    University @relation(fields: [universityId], references: [id])
+  hasFees       Boolean
+  hasUpkeep     Boolean
+  hasStationaly Boolean
+  loan          Loan?      @relation(fields: [loanId], references: [id])
+  loanId        Int?
+}
+
+model Loan {
+  id         Int       @id @map("_id")
+  fees       Int
+  upkeep     Int
+  stationaly Int
+  students   Student[]
+}
