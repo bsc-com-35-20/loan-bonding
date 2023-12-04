@@ -34,13 +34,13 @@ body {
 .container span {
     font-size: 12px;
 }
-.container a {
-    color: #333;
+.container b.hidden {
+    color: #a8832d;
     font-size: 13px;
-    text-decoration: none;
+    text-decoration:double;
     margin: 15px 0 10px;
+    cursor: pointer;
 }
-
 .container button {
     background-color: #a8832d;
     color: #fff;
@@ -78,6 +78,7 @@ body {
         width: 100%;
         outline: none;
 }
+
 .container select {
     background-color: #eee;
     border: none;

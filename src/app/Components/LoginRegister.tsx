@@ -1,13 +1,11 @@
 'use client'
-
 import React, { useEffect } from "react";
 import './style.css';
 import logoImage from './images.jpg';
-import { Image } from "next/dist/client/image-component";
+import Image from "next/image";
 import Link from "next/link";
 
-
-const Home = () => {
+const Home: React.FC = () => {
   useEffect(() => {
     const container = document.getElementById('container');
     const registerBtn = document.getElementById('register');
@@ -16,23 +14,31 @@ const Home = () => {
     const loginBt = document.getElementById('login1');
     
     const handleRegisterClick = () => {
-      container.classList.add("active");
+      if (container) {
+        container.classList.add("active");
+      }
     };
 
     const handleLoginClick = () => {
-      container.classList.remove("active");
+      if (container) {
+        container.classList.remove("active");
+      }
     };
 
-   registerBtn.addEventListener('click', handleRegisterClick);
-    loginBtn.addEventListener('click', handleLoginClick);
-    createAcc.addEventListener('click', handleRegisterClick);
-    loginBt.addEventListener('click', handleLoginClick);
+    if (registerBtn && loginBtn && createAcc && loginBt) {
+      registerBtn.addEventListener('click', handleRegisterClick);
+      loginBtn.addEventListener('click', handleLoginClick);
+      createAcc.addEventListener('click', handleRegisterClick);
+      loginBt.addEventListener('click', handleLoginClick);
+    }
 
     return () => {
-      registerBtn.removeEventListener('click', handleRegisterClick);
-      loginBtn.removeEventListener('click', handleLoginClick);
-      createAcc.removeEventListener('click', handleRegisterClick);
-      loginBt.removeEventListener('click', handleLoginClick);
+      if (registerBtn && loginBtn && createAcc && loginBt) {
+        registerBtn.removeEventListener('click', handleRegisterClick);
+        loginBtn.removeEventListener('click', handleLoginClick);
+        createAcc.removeEventListener('click', handleRegisterClick);
+        loginBt.removeEventListener('click', handleLoginClick);
+      }
     };
   }, []);
 
@@ -55,7 +61,7 @@ const Home = () => {
             <option id="com">College of medicine</option>
           </select>
 
-          <button  className="button" id="login1">Create account</button>
+          <button className="button" id="login1">Create account</button>
 
           <button className="hidden" id="register1">Sign Up</button>
         </form>
@@ -69,8 +75,7 @@ const Home = () => {
           <span>Use your email password</span>
           <input type="email" placeholder="Email" />
           <input type="password" placeholder="Password" />
-          <a href="#">Forget your password?</a>
-          <a href="#" className="hidden" id="register3">create account</a>
+          <b className="hidden" id="register3">create account</b>
           <button>Sign In</button>
           <div className="text-center">
             <p>© 2023 Higher Education Students' Grants & Loans Board</p>
