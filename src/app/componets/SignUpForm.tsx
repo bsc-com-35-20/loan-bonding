@@ -1,13 +1,4 @@
-<<<<<<<< HEAD:src/app/Components/LoginRegister.tsx
-'use client'
-import React, { useEffect } from "react";
-import './style.css';
-import logoImage from './images.jpg';
-import Image from "next/image";
-import Link from "next/link";
 
-const Home: React.FC = () => {
-========
 'use client';
 import React, { useEffect, useState } from 'react';
 import './style.css'
@@ -28,7 +19,7 @@ const SignUpForm = () => {
         //     setMessage("Signing up...");
         //     const message = await signUp(name,email, password);
         //     setMessage(message); }
->>>>>>>> 0cd68554338ba188307eee4fdf0d5a92d05e864d:src/app/componets/SignUpForm.tsx
+
   useEffect(() => {
     const container = document.getElementById('container');
     const registerBtn = document.getElementById('register');
@@ -128,8 +119,6 @@ const SignUpForm = () => {
     );
 };
 
-<<<<<<<< HEAD:src/app/Components/LoginRegister.tsx
-export default Home;
-========
+
 export default SignUpForm;
->>>>>>>> 0cd68554338ba188307eee4fdf0d5a92d05e864d:src/app/componets/SignUpForm.tsx
+
