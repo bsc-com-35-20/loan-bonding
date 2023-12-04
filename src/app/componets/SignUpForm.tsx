@@ -1,7 +1,7 @@
 
 'use client';
 import React, { useEffect, useState } from 'react';
-import './src/app//style.css'
+import './src/app/style.css'
 import logoImage from './images.jpg';
 import Image from 'next/image';
 

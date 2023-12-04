@@ -182,11 +182,3 @@ body {
 .container.active .toggle-right {
     transform: translateX(200%);
 }
-/*@media only screen and (max-width: 400px) {
-    .toggle-panel {
-        position: absolute;
-        width: 100%;
-        height: 90%;
-    }
-}*/
-
