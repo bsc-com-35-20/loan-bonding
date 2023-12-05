@@ -1,8 +1,17 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+<<<<<<< HEAD
 .conten {
     background-color: whitesmoke;
 }
+=======
+
+
+.conten {
+    background-color: whitesmoke;
+}
+
+>>>>>>> 2557e0e574ffd5f7f9911167f0b524870c2f23dd
 
 * {
     margin: 0;
@@ -179,6 +188,7 @@ body {
 .container.active .toggle-right {
     transform: translateX(200%);
 }
+<<<<<<< HEAD
 /*@media only screen and (max-width: 400px) {
     .toggle-panel {
         position: absolute;
@@ -187,3 +197,5 @@ body {
     }
 }*/
 
+=======
+>>>>>>> 2557e0e574ffd5f7f9911167f0b524870c2f23dd
