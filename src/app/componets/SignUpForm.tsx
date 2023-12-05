@@ -1,7 +1,7 @@
 
 'use client';
 import React, { useEffect, useState } from 'react';
-import './src/app/style.css'
+import './style.css'
 import logoImage from './images.jpg';
 import Image from 'next/image';
 
@@ -59,7 +59,7 @@ const SignUpForm = () => {
      
   return (
     <div className="container" id="container">
-      <div className="form-container sign-up" id="signup">
+      <div className="form-container sign-up" id="sigNUp">
         <form>
           <h1>Create an Account</h1>
           <span>Use your email for registration</span>
@@ -81,7 +81,7 @@ const SignUpForm = () => {
           <button className="hidden" id="register " >Sign Up</button>
         </form>
       </div>
-      <div className="form-container sign-in" id="signin">
+      <div className="form-container sign-in" id="sigNin">
         <form>
           <div className="login-header">
           <Image src={logoImage} width={245} height={197} alt="Logo"/>
