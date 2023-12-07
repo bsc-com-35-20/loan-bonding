@@ -1,10 +1,9 @@
-// Import the necessary modules from 'next/router' instead of 'next/navigation'
+
 'use client'
 
 import { signIn } from 'next-auth/react';
 import Image from 'next/image';
 import logoImage from './images.jpg';
-import image from './background.jpg'
 import './styleSignIn.css'; 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -16,7 +15,7 @@ const SignInForm = () => {
 
   const handleSignIn = async (e: { preventDefault: () => void; }) => {
 
-    // Logic for handling sign in
+    
     console.log('Email:', email);
     console.log('Password:', password);
 
@@ -30,7 +29,7 @@ const SignInForm = () => {
     });
 
     if (signInResponse?.error) {
-      // Handle error if signInResponse has an error
+      
       console.error('Sign-in error:', signInResponse.error);
     } else {
       router.push('/Dashboard');

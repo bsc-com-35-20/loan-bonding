@@ -163,18 +163,16 @@ body {
     [class*="container"] {
         width: 100%;
     }
+    .container {
+        background: #fff;
+        border-radius: 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+        position: relative;
+        overflow: hidden;
+        width: 520px;
+        min-height: 580px;
+    }
    
-   .toggle-container {
-    position: absolute;
-    top: 0;
-    left: 0%;
-    width: 0%;
-    height: 100%;
-    overflow: hidden;
-    transition: all 0.6s ease-in-out;
-    border-radius: 150px 0 0 100px;
-    z-index: 1000;
-}
     .sign-in {
         left: 0;
         width: 100%; 

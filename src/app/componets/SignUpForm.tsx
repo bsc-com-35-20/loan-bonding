@@ -32,6 +32,11 @@ const SignUpForm = () => {
           router.push('/PersonalInfo');
         };
         
+        const navigateToSignIn = () => {
+
+          router.push('/auth/signin');
+        };
+        
   useEffect(() => {
     const container = document.getElementById('container');
     const registerBtn = document.getElementById('register');
@@ -89,7 +94,8 @@ const SignUpForm = () => {
           </select>
           <br/>
           <b className="hidden" onClick={navigateToSignUp}>create account</b>
-        </form>
+          <br/>
+          <p>Already have an account?<a className='hidden' onClick={navigateToSignIn}> Login</a></p>        </form>
       </div>
       {/*<div className='toggle-container'>
       <div className='toggle'/>
