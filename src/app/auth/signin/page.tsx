@@ -1,10 +1,11 @@
+import SignInForm from '@/app/componets/SignInForm'
 import React from 'react'
 
 const SignInPage= () => {
   return (
     <div>
-        SignInPage
-        {/* <SignInForm /> */}
+      
+        <SignInForm />
     </div>
   )
 }
