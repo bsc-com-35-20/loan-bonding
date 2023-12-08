@@ -81,21 +81,13 @@ const SignInForm = () => {
         </b>
 
         <button type="submit">Sign In</button>
+        <p>{message}</p>
         <div className="text-center">
           <p>© 2023 Higher Education Students' Grants & Loans Board</p>
         </div>
       </form>
     </div>
-   {/*<div className='toggle-container'>
-      <div className='toggle'/>
-            <div className="toggle-panel toggle-right">
-            <h1>Hello There!</h1>
-            <p>Register with your personal details to use all site features</p>
-            <button className="hidden" id="register">
-              Sign Up
-            </button>
-          </div>
-  </div>*/}
+  
     </div>
   );
 };
