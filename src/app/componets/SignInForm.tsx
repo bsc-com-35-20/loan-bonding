@@ -1,7 +1,7 @@
 
 'use client'
 
-import { signIn } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
 import Image from 'next/image';
 import logoImage from './images.jpg';
 import './styleSignIn.css'; 
@@ -10,72 +10,55 @@ import { useRouter } from 'next/navigation';
 
 const SignInForm = () => {
   const router = useRouter();
+
+  const { status } = useSession();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSignIn = async (e: { preventDefault: () => void; }) => {
+  const [message, setMessage] = useState('');
 
-    
-    console.log('Email:', email);
-    console.log('Password:', password);
-
-    setEmail('');
-    setPassword('');
-
-    const signInResponse = await signIn('credentials', {
-      redirect: false,
-      email,
-      password,
-    });
-
-    if (signInResponse?.error) {
+  const handleSubmit = async () => {
+      setMessage('Signing in...');
       
-      console.error('Sign-in error:', signInResponse.error);
-    } else {
-      router.push('/Dashboard');
-    }
+      try {
+          const signInResponse = await signIn('credentials', {
+              email,
+              password,
+              redirect: false,
+          })
+
+          if(!signInResponse || signInResponse.ok !== true) {
+              setMessage("Invalid credentials");
+          } else {
+              router.refresh();
+          }
+
+      } catch(err) {
+          console.log(err);
+      }
+
+      setMessage(message);
   };
+
+  useEffect(() => {
+      if (status === 'authenticated') {
+          router.refresh();
+          router.push('/');
+      }
+  }, [status]);
   const navigateToSignIn = () => {
 
     router.push('/auth/signup');
   };
 
-  useEffect(() => {
-    const container = document.getElementById('container');
-    const registerBtn = document.getElementById('register');
-    const loginBtn = document.getElementById('login');
-
-    const handleRegisterClick = () => {
-      if (container) {
-        container.classList.add('active');
-      }
-    };
-
-    const handleLoginClick = () => {
-      if (container) {
-        container.classList.remove('active');
-      }
-    };
-
-    if (registerBtn && loginBtn ) {
-      registerBtn.addEventListener('click', handleRegisterClick);
-      loginBtn.addEventListener('click', handleLoginClick);
-      
-    }
-
-    return () => {
-      if (registerBtn && loginBtn ) {
-        registerBtn.removeEventListener('click', handleRegisterClick);
-        loginBtn.removeEventListener('click', handleLoginClick);
-        
-      }
-    };
-  }, []);
+ 
+   
 
   return (
     <div className="container" id="container">
     <div className="form-container sign-in" id="sigNin">
-      <form onSubmit={handleSignIn}>
+      <form onSubmit={handleSubmit}>
         <div className="login-header">
           <Image src={logoImage} width={245} height={197} alt="Logo" />
           <h2>SFMIS - Login</h2>

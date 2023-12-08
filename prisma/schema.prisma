@@ -1,36 +1,31 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "mongodb"
-  url      = env("DATABASE_URL")
+  provider     = "mongodb"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
 }
 
-model Account {
-  id                String @id @default(auto()) @map("_id") @db.ObjectId
-  /// Field referred in an index, but found no data to define the type.
-  provider          Json?
-  /// Field referred in an index, but found no data to define the type.
-  providerAccountId Json?
-
-  @@unique([provider, providerAccountId])
+model User {
+  id           String @id @default(auto()) @map("_id") @db.ObjectId
+  email        String @unique
+  passwordHash String
+  name         String
+  universityId String
+  regNumber    String @unique
+ 
+  // Add other fields as needed
 }
 
 model Session {
   id           String @id @default(auto()) @map("_id") @db.ObjectId
   /// Field referred in an index, but found no data to define the type.
   sessionToken Json?  @unique
-}
-
-model User {
-  id           String @id @default(auto()) @map("_id") @db.ObjectId
-  passwordHash String
-  email        String @unique
-  name         String
-  universityId Int
-  regNumber    String @unique
-  
 }
 
 model University {
@@ -42,17 +37,19 @@ model University {
 
 // Define the Student model
 model Student {
-  id            Int        @id @map("_id")
-  firstName     String
-  lastName      String
-  universityId  String  
-  regNumber     Int
-  university    University @relation(fields: [universityId], references: [id])
-  hasFees       Boolean
-  hasUpkeep     Boolean
-  hasStationaly Boolean
-  loan          Loan?      @relation(fields: [loanId], references: [id])
-  loanId        Int?
+  id                  Int        @id @map("_id")
+  firstName           String
+  lastName            String
+  universityId        String
+  regestrationNumber  String  @unique
+  studentEmail        String  @unique
+  university          University @relation(fields: [universityId], references: [id])
+  hasFees             Boolean
+  hasUpkeep           Boolean
+  hasStationaly       Boolean
+  loan                Loan?      @relation(fields: [loanId], references: [id])
+  loanId              Int?
+
 }
 
 model Loan {
