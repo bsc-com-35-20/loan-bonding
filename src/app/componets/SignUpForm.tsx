@@ -5,7 +5,7 @@ import './style.css'
 import Image from 'next/image';
 import logoImage from './images.jpg';
 import { signUp } from '../actions/users/SignUp';
-import router, { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 
 const SignUpForm = () => {
@@ -25,7 +25,7 @@ const SignUpForm = () => {
 
         if (message === "Successfully created new user!") {
           // Redirect to the sign-in page
-          router.push('/signin'); // Update the path accordingly
+          router.push('/auth/signin'); // Update the path accordingly
         }
     };
    
