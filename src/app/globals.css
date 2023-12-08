@@ -1,0 +1,56 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #4285F4;
+    color: #fff;
+    padding: 1em;
+    display: flex;
+    align-items: center;
+  }
+  
+  header img {
+    width: 150px;
+    height: auto;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 2em;
+  }
+  
+  main {
+    padding: 1em;
+  }
+  
+  .hero {
+    background-image: url("/hero-background.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 2em;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .hero h2 {
+    font-size: 1.5em;
+    margin-bottom: 2em;
+  }
+  
+  .hero .btn {
+    background-color: #fff;
+    color: #4285F4;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  .benefits {
+    padding: 1em;
+    margin-bottom: 2em;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2)
+  }
