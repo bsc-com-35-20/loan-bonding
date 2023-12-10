@@ -6,25 +6,58 @@ export default function Home() {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
-    // Add other personal information fields here
+    birthday: '',
+    gender: '',
+    homeVillage: '',
+    traditionalAuthority: '',
+    district: '',
+    postalAddress: '',
+    phoneNumber: '',
+    email: '',
     accountName: '',
     accountNumber: '',
   });
 
+  const [errors, setErrors] = useState({});
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+    setErrors({ ...errors, [name]: '' }); // Clear validation error when the user types
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+
+    // Basic required field validation
+    Object.keys(formData).forEach((field) => {
+      if (!formData[field] && field !== 'email') {
+        newErrors[field] = 'This field is required';
+      }
+    });
+
+    // Email validation
+    if (formData.email && !/^\S+@\S+\.\S+$/.test(formData.email)) {
+      newErrors.email = 'Invalid email format';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      // Assuming your API route is /api/loanApplication
-      const response = await axios.post('/api/loanApplication', formData);
-      console.log('Loan application submitted:', response.data);
-    } catch (error) {
-      console.error('Error submitting loan application:', error);
+    if (validateForm()) {
+      try {
+        // Assuming your API route is /api/loanApplication
+        const response = await axios.post('/api/loanApplication', formData);
+        console.log('Loan application submitted:', response.data);
+      } catch (error) {
+        console.error('Error submitting loan application:', error);
+      }
+    } else {
+      console.log('Form has errors. Please fix them before submitting.');
     }
   };
 
@@ -42,19 +75,9 @@ export default function Home() {
             onChange={handleChange}
             required
           />
+          {errors.firstName && <span className="error">{errors.firstName}</span>}
         </div>
-        <div>
-          <label htmlFor="lastName">Last Name:</label>
-          <input
-            type="text"
-            id="lastName"
-            name="lastName"
-            value={formData.lastName}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        {/* Add other personal information fields here */}
+        {/* Repeat similar code for other personal information fields */}
 
         <h2>Bank Details</h2>
         <div>
@@ -67,18 +90,9 @@ export default function Home() {
             onChange={handleChange}
             required
           />
+          {errors.accountName && <span className="error">{errors.accountName}</span>}
         </div>
-        <div>
-          <label htmlFor="accountNumber">Account Number:</label>
-          <input
-            type="text"
-            id="accountNumber"
-            name="accountNumber"
-            value={formData.accountNumber}
-            onChange={handleChange}
-            required
-          />
-        </div>
+        {/* Repeat similar code for other bank details fields */}
 
         <button type="submit">Submit Application</button>
       </form>
