@@ -1,7 +1,7 @@
 
 'use client'
 
-import { signIn } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
 import Image from 'next/image';
 import logoImage from './images.jpg';
 import './styleSignIn.css'; 
@@ -10,43 +10,54 @@ import { useRouter } from 'next/navigation';
 
 const SignInForm = () => {
   const router = useRouter();
+
+  const { status } = useSession();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSignIn = async (e: { preventDefault: () => void; }) => {
+  const [message, setMessage] = useState('');
 
-    
-    console.log('Email:', email);
-    console.log('Password:', password);
-
-    setEmail('');
-    setPassword('');
-
-    const signInResponse = await signIn('credentials', {
-      redirect: false,
-      email,
-      password,
-    });
-
-    if (signInResponse?.error) {
+  const handleSubmit = async () => {
+      setMessage('Signing in...');
       
-      console.error('Sign-in error:', signInResponse.error);
-    } else {
-      router.push('/Dashboard');
-    }
+      try {
+          const signInResponse = await signIn('credentials', {
+              email,
+              password,
+              redirect: false,
+          })
+
+          if(!signInResponse || signInResponse.ok !== true) {
+              setMessage("Invalid credentials");
+          } else {
+              router.refresh();
+          }
+
+      } catch(err) {
+          console.log(err);
+      }
+
+      setMessage(message);
   };
+
+  useEffect(() => {
+      if (status === 'authenticated') {
+          router.refresh();
+          router.push('/');
+      }
+  }, [status]);
   const navigateToSignIn = () => {
 
     router.push('/auth/signup');
   };
 
 
-
   return (
     <section className='home'>
     <div className="container" id="container">
     <div className="form-container sign-in" id="sigNin">
-      <form onSubmit={handleSignIn}>
+      <form onSubmit={handleSubmit}>
         <div className="login-header">
           <Image src={logoImage} width={245} height={197} alt="Logo" />
           <h2>SFMIS - Login</h2>
@@ -69,21 +80,13 @@ const SignInForm = () => {
         </b>
 
         <button type="submit">Sign In</button>
+        <p>{message}</p>
         <div className="text-center">
           <p>© 2023 Higher Education Students' Grants & Loans Board</p>
         </div>
       </form>
     </div>
-   {/*<div className='toggle-container'>
-      <div className='toggle'/>
-            <div className="toggle-panel toggle-right">
-            <h1>Hello There!</h1>
-            <p>Register with your personal details to use all site features</p>
-            <button className="hidden" id="register">
-              Sign Up
-            </button>
-          </div>
-  </div>*/}
+  
     </div>
     </section>
   );
