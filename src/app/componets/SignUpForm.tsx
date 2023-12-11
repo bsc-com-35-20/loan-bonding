@@ -37,41 +37,7 @@ const SignUpForm = () => {
           router.push('/auth/signin');
         };
         
-  useEffect(() => {
-    const container = document.getElementById('container');
-    const registerBtn = document.getElementById('register');
-    //const createAcc = document.getElementById('register3');
-    const loginBtn = document.getElementById('login');
-    
-    
-    
-    const handleRegisterClick = () => {
-      if (container) {
-        container.classList.add("active");
-      }
-    };
-
-    const handleLoginClick = () => {
-      if (container) {
-        container.classList.remove("active");
-      }
-    };
-
-    if (registerBtn && loginBtn  ) {
-      registerBtn.addEventListener('click', handleRegisterClick);
-      loginBtn.addEventListener('click', handleLoginClick);
-      
-      
-    }
-
-    return () => {
-      if (registerBtn && loginBtn  ) {
-        registerBtn.removeEventListener('click', handleRegisterClick);
-        loginBtn.removeEventListener('click', handleLoginClick);
-        
-      }
-    };
-  }, []);
+  
 
   return (
     <div className="container" id="container">

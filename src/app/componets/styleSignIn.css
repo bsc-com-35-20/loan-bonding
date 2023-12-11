@@ -6,6 +6,7 @@
     font-family: 'Montserrat', sans-serif;
 }
 body {
+    background-image: url(background.jpg);
     background-color: #a2a01b;
     background: linear-gradient(to right, #e2e2e2, #c9d6ff);
     display: flex;
@@ -14,8 +15,19 @@ body {
     flex-direction: column;
     height: 100vh;
 }
+.home{
 
+    width : 100%;
+    background-image: url(background.jpg);
+    position: relative;
+    background-size: cover;
+}
 
+h2{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
 .container {
     background: #fff;
     border-radius: 30px;
@@ -35,7 +47,7 @@ body {
     font-size: 12px;
 }
 .container b{
-    color: #333333e7;
+    color: #a8832d;
     font-size: 13px;
     text-decoration: none;
     margin: 15px 0 10px;

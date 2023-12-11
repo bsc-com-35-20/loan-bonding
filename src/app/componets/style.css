@@ -35,7 +35,7 @@ body {
     font-size: 12px;
 }
 .container b {
-    color: #333333e7;
+    color: #a8832d;
     font-size: 13px;
     text-decoration: none;
     margin: 15px 0 10px;
@@ -213,17 +213,6 @@ body {
     max-width: 100%;
     z-index: 2;
    }
-   .toggle-container {
-    position: absolute;
-    top: 0;
-    left: 0%;
-    width: 0%;
-    height: 100%;
-    overflow: hidden;
-    transition: all 0.6s ease-in-out;
-    border-radius: 150px 0 0 100px;
-    z-index: 1000;
-}
    
     .container.active .sign-up {
         transform: translateX(0%);

@@ -40,39 +40,10 @@ const SignInForm = () => {
     router.push('/auth/signup');
   };
 
-  useEffect(() => {
-    const container = document.getElementById('container');
-    const registerBtn = document.getElementById('register');
-    const loginBtn = document.getElementById('login');
 
-    const handleRegisterClick = () => {
-      if (container) {
-        container.classList.add('active');
-      }
-    };
-
-    const handleLoginClick = () => {
-      if (container) {
-        container.classList.remove('active');
-      }
-    };
-
-    if (registerBtn && loginBtn ) {
-      registerBtn.addEventListener('click', handleRegisterClick);
-      loginBtn.addEventListener('click', handleLoginClick);
-      
-    }
-
-    return () => {
-      if (registerBtn && loginBtn ) {
-        registerBtn.removeEventListener('click', handleRegisterClick);
-        loginBtn.removeEventListener('click', handleLoginClick);
-        
-      }
-    };
-  }, []);
 
   return (
+    <section className='home'>
     <div className="container" id="container">
     <div className="form-container sign-in" id="sigNin">
       <form onSubmit={handleSignIn}>
@@ -114,6 +85,7 @@ const SignInForm = () => {
           </div>
   </div>*/}
     </div>
+    </section>
   );
 };
 
