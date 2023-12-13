@@ -22,8 +22,8 @@ function App() {
           <ul id="menuList" style={{ maxHeight: menuHeight }}>
             <li><a href="">Home</a></li>
             <li><a href="">About</a></li>
-            <li><a href="">Login</a></li>
-            <li><a href="">Sign up</a></li>
+            <li><a href="auth/signin">Login</a></li>
+            <li><a href="auth/signup">Sign up</a></li>
           </ul>
         </nav>
         <Image src={menu}  width = {300} height= {30} alt="menu" className="menu" onClick={toggleMenu} />
