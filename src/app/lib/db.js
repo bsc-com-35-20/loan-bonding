@@ -1,14 +1,10 @@
 // lib/db.js
 import mongoose from 'mongoose';
 
-const { MONGODB_URI, MONGODB_DB } = process.env;
+const MONGODB_URI = process.env.MONGODB_URI;
 
 if (!MONGODB_URI) {
   throw new Error('Please define the MONGODB_URI environment variable inside .env.local');
-}
-
-if (!MONGODB_DB) {
-  throw new Error('Please define the MONGODB_DB environment variable inside .env.local');
 }
 
 let cachedConnection = null;
@@ -18,19 +14,11 @@ export async function connectToDatabase() {
     return cachedConnection;
   }
 
-  const options = {
+  const dbConnection = await mongoose.connect(MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-  };
+  });
 
-  const dbConnection = await mongoose.connect(MONGODB_URI, options);
   cachedConnection = dbConnection;
   return dbConnection;
-}
-
-export async function disconnectFromDatabase() {
-  if (cachedConnection) {
-    await mongoose.disconnect();
-    cachedConnection = null;
-  }
 }
