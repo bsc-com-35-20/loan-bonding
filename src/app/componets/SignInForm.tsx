@@ -47,18 +47,10 @@ const SignInForm = () => {
           router.push('/');
       }
   }, [status]);
-  const navigateToSignIn = () => {
-
-    router.push('/auth/signup');
-  };
-
- 
-   
-
   return (
     <div className="container" id="container">
     <div className="form-container sign-in" id="sigNin">
-      <form onSubmit={handleSubmit}>
+      <form >
         <div className="login-header">
           <Image src={logoImage} width={245} height={197} alt="Logo" />
           <h2>SFMIS - Login</h2>
@@ -76,11 +68,11 @@ const SignInForm = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <p>Don't have an account?</p><b className="hidden" onClick={navigateToSignIn}>
+        <p>Don't have an account?</p><b className="hidden" >
           create account
         </b>
 
-        <button type="submit">Sign In</button>
+        <button type="submit" onClick={handleSubmit}>Sign In</button>
         <p>{message}</p>
         <div className="text-center">
           <p>© 2023 Higher Education Students' Grants & Loans Board</p>
