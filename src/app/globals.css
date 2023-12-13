@@ -1,56 +1,151 @@
-body {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
-  }
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+.container{
+  min-height: 100vh;
+  padding-left: 8%;
+  padding-right: 8%;
+  overflow: hidden;
+  width: 100%;
+}
+.navbar{
+  display: flex;
+  align-items: center;
+}
+.logo{
+  width: 150px;
+  cursor: pointer;
+  margin: 30px 0;
+}
+.menu{
+  width: 25px;
+  cursor: pointer;
+  display: none;
+}
+nav{
+  flex: 1;
+  text-align: right;
+}
+nav ul li{
+  list-style: none;
+  display: inline-block;
+  margin-right: 30px;
+}
+nav ul li a{
+  text-decoration: none;
+  color: #000;
+  font-size: 18px;
+
+}
+nav ul li a:hover{
+  color: #1977ae;
+}
+.row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 100px 0;
+}
+.col-1{
+   position: relative;
+  flex-basis: 50%;
+  margin-left: 50px;
+}
+.col-1 h2{
+    font-size: 54px;
+}
+.col-1 h3{
+  font-size: 24px;
+  color: #291c1c;
+  margin: 20px 0 10px;
+}
+.col-1 p{
+  color: #1e1d1c;
+  font-weight: 100;
+}
+.col-1 h4{
+  margin: 20px 0 30px;
+}
+button{
+  width: 140px;
+  background: linear-gradient(to right, #d96e16 , #a4520e);
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  padding: 12px 10px 10px;
+  outline: none;
+  transition: width 0.5s;
+  border-radius: 6px;
+}
+button img{
+  display: none;
+  width: 30px;
+}
+button:hover img{
+  display: block;
+}
+button:hover{
+  width: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.col-2{
+  position: relative;
+  flex-basis: 60%;
+  display: flex;
+  align-items: center;
+
+}
+.col-2 .controller{
+    width: 90%;
+}
+.links img{
+  height: 13px;
+  margin: 20px;
+
+}
+.links{
+  text-align: center;
+} 
+@media only screen and (max-width: 700px){
+       nav ul{
+          width: 100%;
+          background: linear-gradient( #f7a140 , #ffe627);
+          position: absolute;
+          top: 75px;
+          right: 0;
+          z-index: 2;
+       }
+       nav ul li{
+          display: block;
+          margin-bottom: 10px;
+          margin-top: 10px;
+       }
+       nav ul li a{
+          color: #Fff;
+       }
+       .menu{
+          display: block;
+       }
+       .row{
+          flex-direction: column-reverse;
+          margin: 50px 0;
+       }
+       #menuList{
+          overflow: hidden;
+          transition: 0.5s;
+       }
+       .col-1 h2{
+          font-size: 48px;
+       }
+       .col-2 .controller{
+          margin: 20px 0 40px;
+          flex-basis: 100%;
+       }
+}
   
-  header {
-    background-color: #4285F4;
-    color: #fff;
-    padding: 1em;
-    display: flex;
-    align-items: center;
-  }
-  
-  header img {
-    width: 150px;
-    height: auto;
-  }
-  
-  header h1 {
-    margin: 0;
-    font-size: 2em;
-  }
-  
-  main {
-    padding: 1em;
-  }
-  
-  .hero {
-    background-image: url("/hero-background.jpg");
-    background-size: cover;
-    background-position: center;
-    padding: 2em;
-    color: #fff;
-    text-align: center;
-  }
-  
-  .hero h2 {
-    font-size: 1.5em;
-    margin-bottom: 2em;
-  }
-  
-  .hero .btn {
-    background-color: #fff;
-    color: #4285F4;
-    padding: 0.5em 1em;
-    border-radius: 5px;
-    font-weight: bold;
-  }
-  
-  .benefits {
-    padding: 1em;
-    margin-bottom: 2em;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2)
-  }
