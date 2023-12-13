@@ -15,7 +15,9 @@ body {
     height: 100vh;
 }
 
-
+h2{
+    text-align: center;
+}
 .container {
     background: #fff;
     border-radius: 30px;
