@@ -5,6 +5,7 @@ import logoImage from './images.jpg';
 import './styleSignIn.css';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { PersonalInfor } from './PersonalInfor';
 
 const SignInForm = () => {
   const router = useRouter();
@@ -15,6 +16,8 @@ const SignInForm = () => {
   const [password, setPassword] = useState('');
 
   const [message, setMessage] = useState('');
+
+  const [forceRender, setForceRender] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -30,7 +33,7 @@ const SignInForm = () => {
       if(!signInResponse || signInResponse.ok !== true) {
           setMessage("Invalid credentials");
       } else {
-          router.refresh();
+          router.push('/Form');
       }
 
   } catch(err) {
@@ -40,18 +43,20 @@ const SignInForm = () => {
 
   useEffect(() => {
     if (status === 'authenticated') {
-      
-      router.replace('/Form');
-    }
+  }
+  
   }, [status]);
   
   const navigateToSignUp = () => {
    
     router.push('/auth/signup');
   };
+  const updateRender = () => {
+    setForceRender(prevState => !prevState);
+  };
 
   return (
-    <div className="container" id="container">
+    <div className="container" id="container"  key={forceRender ? 'forceRender' : 'normalKey'}>
       <div className="form-container sign-in" id="sigNin">
         <form onSubmit={handleSubmit}>
           <div className="login-header">
@@ -72,9 +77,9 @@ const SignInForm = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <p>Don't have an account?</p>
-          <b className="hidden" onClick={navigateToSignUp}>Create account</b>
+          <b  onClick={navigateToSignUp}>Create account</b>
           <br/>
-          <button type="submit">Sign In</button>
+          <button type="submit"  >Sign In</button>
           <p>{message}</p>
           <div className="text-center">
             <p>© 2023 Higher Education Students' Grants & Loans Board</p>
