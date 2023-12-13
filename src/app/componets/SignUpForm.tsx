@@ -16,6 +16,10 @@ const SignUpForm = () => {
   const [regNumber, setRegNumber] = useState("");
 
   const handleSubmit = async () => {
+     if (!email || !password || !universityId || !regNumber) {
+    setMessage('Please fill in all required fields.');
+    return;
+  }
     setMessage("Signing up...");
     const message = await signUp(email, password, universityId, regNumber);
     setMessage(message);
