@@ -43,8 +43,9 @@ const SignInForm = () => {
 
   useEffect(() => {
     if (status === 'authenticated') {
-  }
-  
+      
+      router.push('/Form');
+    }
   }, [status]);
   
   const navigateToSignUp = () => {

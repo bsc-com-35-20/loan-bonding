@@ -1,3 +1,4 @@
+import { useRouter } from "next/navigation";
 import { BankDetails } from "./BankDetails";
 import { useFormState } from "./FormContext";
 import { GuardianDetails } from "./GuardianDetails";
@@ -10,7 +11,9 @@ export function FormStep(){
     const { step } = useFormState();
 
     switch(step){
+
         case 1:
+            
             return <PersonalInfor />;
         case 2:
             return <GuardianDetails />;
