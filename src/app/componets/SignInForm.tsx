@@ -22,25 +22,26 @@ const SignInForm = () => {
 
     try {
       const signInResponse = await signIn('credentials', {
-        email,
-        password,
-        redirect: false,
-      });
+          email,
+          password,
+          redirect: false,
+      })
 
-      if (signInResponse?.ok) {
-        router.push('/PersonalInfor'); // Redirect to the home page or any other page on successful sign-in
+      if(!signInResponse || signInResponse.ok !== true) {
+          setMessage("Invalid credentials");
       } else {
-        setMessage('Invalid credentials');
+          router.refresh();
       }
-    } catch (err) {
-      console.error(err);
-      setMessage('An error occurred during sign-in');
-    }
+
+  } catch(err) {
+      console.log(err);
+  }
   };
 
   useEffect(() => {
     if (status === 'authenticated') {
-      router.push('/Form');
+      
+      router.replace('/Form');
     }
   }, [status]);
   

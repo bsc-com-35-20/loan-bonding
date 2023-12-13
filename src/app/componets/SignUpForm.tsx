@@ -15,7 +15,8 @@ const SignUpForm = () => {
   const [universityId, setUniversityId] = useState("");
   const [regNumber, setRegNumber] = useState("");
 
-  const handleSubmit = async () => {
+  const handleSubmit  = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
      if (!email || !password || !universityId || !regNumber) {
     setMessage('Please fill in all required fields.');
     return;
@@ -83,7 +84,7 @@ const SignUpForm = () => {
           >
             {message}
           </p>
-          <button onClick={handleSubmit}>
+          <button   type="submit">
             create account
           </button>
           <p>
