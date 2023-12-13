@@ -9,7 +9,7 @@ import { FormStep } from "../componets/FormStep";
 
 export default function Home() {
  
-  return <main>
+  return <main className='w-full min-h-screen'>
           <div className='page bg-cover bg-center bg-no-repeat flex justify-center items-center w-full min-h-screen p-6'>
           <div className='max-w-2xl w-full border p-6 round-md bg-white'>
             

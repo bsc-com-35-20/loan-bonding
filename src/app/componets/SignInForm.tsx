@@ -41,7 +41,7 @@ const SignInForm = () => {
   useEffect(() => {
     if (status === 'authenticated') {
       
-      router.replace('/Form');
+      router.push('/Form');
     }
   }, [status]);
   

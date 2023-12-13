@@ -22,7 +22,7 @@ export function PersonalInfor(){
         onHandleNext();
     }
 
-    return <form className="space-y-4 textdd " onSubmit={handleSubmit(onHandleFormSubmit)}>
+    return <form className="space-y-4 textdd w-full"  onSubmit={handleSubmit(onHandleFormSubmit)}>
       <h1 className='text-xl font-semibold text-center'>Personal Information</h1>
         <div className="flex flex-col  gap-1">
 
