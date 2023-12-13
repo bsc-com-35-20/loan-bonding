@@ -52,9 +52,10 @@ const SignInForm = () => {
     router.push('/auth/signup');
   };
 
+ 
+   
 
   return (
-    <section className='home'>
     <div className="container" id="container">
     <div className="form-container sign-in" id="sigNin">
       <form onSubmit={handleSubmit}>
@@ -88,7 +89,6 @@ const SignInForm = () => {
     </div>
   
     </div>
-    </section>
   );
 };
 

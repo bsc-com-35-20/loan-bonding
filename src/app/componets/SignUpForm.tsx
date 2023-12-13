@@ -7,70 +7,25 @@ import { signUp } from "../actions/users/SignUp";
 import { useRouter } from "next/navigation";
 
 const SignUpForm = () => {
-   const router = useRouter();
-    const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  
-  
-        const handleSignUp = (e: FormEvent) => {
-          e.preventDefault();
-          
-          
-          console.log('Email:', email);
-          console.log('Password:', password);
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-          
-          setEmail('');
-          setPassword('');
+  const [message, setMessage] = useState("");
+  const [universityId, setUniversityId] = useState("");
+  const [regNumber, setRegNumber] = useState("");
 
-          router.push('/SignInForm');
-        };
+  const handleSubmit = async () => {
+    setMessage("Signing up...");
+    const message = await signUp(email, password, universityId, regNumber);
+    setMessage(message);
+    console.log("Message:", message);
 
-        const navigateToSignUp = () => {
-
-          router.push('/PersonalInfo');
-        };
-        
-        const navigateToSignIn = () => {
-
-          router.push('/auth/signin');
-        };
-        
-  useEffect(() => {
-    const container = document.getElementById('container');
-    const registerBtn = document.getElementById('register');
-    //const createAcc = document.getElementById('register3');
-    const loginBtn = document.getElementById('login');
-    
-    
-    
-    const handleRegisterClick = () => {
-      if (container) {
-        container.classList.add("active");
-      }
-    };
-
-    const handleLoginClick = () => {
-      if (container) {
-        container.classList.remove("active");
-      }
-    };
-
-    if (registerBtn && loginBtn  ) {
-      registerBtn.addEventListener('click', handleRegisterClick);
-      loginBtn.addEventListener('click', handleLoginClick);
-      
-      
+    if (message === "Successfully created new user!") {
+      // Redirect to the sign-in page
+      router.push("/auth/signin"); // Update the path accordingly
     }
-
-    return () => {
-      if (registerBtn && loginBtn  ) {
-        registerBtn.removeEventListener('click', handleRegisterClick);
-        loginBtn.removeEventListener('click', handleLoginClick);
-        
-      }
-    };
-  }, []);
+  };
 
   return (
     <div className="container" id="container">

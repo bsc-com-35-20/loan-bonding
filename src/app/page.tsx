@@ -1,17 +1,12 @@
-import React from 'react';
+{/*import React from 'react';
 import images.jpg from `../components/images.jpg`;
 
 
 function Home() {
-<<<<<<< HEAD
+
  
   return(
-    <div> Home
-    </div>
-  );
-}
-=======
-  return (
+    
   <div className="container">
     <Head>
       <h1>Welcome to the Student Loan Bonding Application!</h1>
@@ -38,6 +33,6 @@ function Home() {
   </div>
 );
   }
->>>>>>> 28c56957c6c0cb322f27bbf2511ecdc977c34b6d
 
-export default Home;
+
+export default Home;*/}
