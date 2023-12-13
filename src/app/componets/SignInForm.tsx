@@ -28,7 +28,7 @@ const SignInForm = () => {
       });
 
       if (signInResponse?.ok) {
-        router.push('/'); // Redirect to the home page or any other page on successful sign-in
+        router.push('/PersonalInfor'); // Redirect to the home page or any other page on successful sign-in
       } else {
         setMessage('Invalid credentials');
       }
@@ -40,7 +40,7 @@ const SignInForm = () => {
 
   useEffect(() => {
     if (status === 'authenticated') {
-      router.push('/');
+      router.push('/Form');
     }
   }, [status]);
 
@@ -66,6 +66,7 @@ const SignInForm = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <p>Don't have an account?</p>
+          <br/>
           <button type="submit">Sign In</button>
           <p>{message}</p>
           <div className="text-center">

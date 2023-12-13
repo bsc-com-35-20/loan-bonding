@@ -83,11 +83,11 @@ const SignUpForm = () => {
           >
             {message}
           </p>
-          <b className="hidden" onClick={handleSubmit}>
+          <button onClick={handleSubmit}>
             create account
-          </b>
+          </button>
           <p>
-            Already have an account?<a className="hidden"> Login</a>
+            Already have an account?<a > Login</a>
           </p>{" "}
         </form>
       </div>
