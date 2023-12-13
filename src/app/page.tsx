@@ -42,17 +42,23 @@ function App() {
         </div>
       </div>
       <div className="links">
+        
         <footer>
-          <h3>CONTACT INFO</h3>
-          <p>You can always contact us via email or phone. Get in touch with us today!</p>
-          <p>Area 10 Off Mphonongo Street<br />
-            Lilongwe<br />
-            Malawi<br />
-            +265 1 795 955 / 979<br />
-            +265 885890520<br />
-            heslgbsecretariat@heslgb.com</p>
-          <p>&copy; 2023 Loans Board. All rights reserved.</p>
-        </footer>
+  <h3>CONTACT INFO</h3>
+  <p>You can always contact us via email or phone.</p>
+  <p>Get in touch with us today!</p>
+  <address>
+    <p>Area 10 Off Mphonongo Street<br />
+    Lilongwe<br />
+    Malawi<br />
+    +265 1 795 955 / 979<br />
+    +265 885890520<br />
+    <a href="mailto:heslgbsecretariat@heslgb.com">heslgbsecretariat@heslgb.com</a></p>
+  </address>
+  <p>&copy; 2023 Loans Board. All rights reserved.</p>
+</footer>
+
+        
       </div>
     </div>
   );
