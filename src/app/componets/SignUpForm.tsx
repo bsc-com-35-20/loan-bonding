@@ -27,7 +27,7 @@ const SignUpForm = () => {
 
     if (message === "Successfully created new user!") {
       // Redirect to the sign-in page
-      router.push("/auth/signin"); // Update the path accordingly
+      router.push("/auth/signin"); 
     }
   };
 

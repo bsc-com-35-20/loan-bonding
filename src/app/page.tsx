@@ -35,7 +35,7 @@ function App() {
           <p>Say goodbye to long queues and paperwork! Submit your bond application electronically and get a faster response.</p>
           <br />
           <br />
-          <button>Get started <img src="img/arrow.png" alt="" /></button>
+          <button><a href = "auth/signin">Get started <img src="img/arrow.png" alt="" /></a></button>
         </div>
         <div className="col-2">
           <Image src={StudentImage} width={500} height={500} className='students' alt="students" />
