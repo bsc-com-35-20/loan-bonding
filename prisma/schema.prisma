@@ -22,11 +22,6 @@ model User {
   // Add other fields as needed
 }
 
-model Session {
-  id           String @id @default(auto()) @map("_id") @db.ObjectId
-  /// Field referred in an index, but found no data to define the type.
-  sessionToken Json?  @unique
-}
 
 model University {
   id       String    @id @map("_id")
@@ -37,7 +32,7 @@ model University {
 
 // Define the Student model
 model Student {
-  id                  Int        @id @map("_id")
+  id                  String    @id @map("_id")
   firstName           String
   lastName            String
   universityId        String
