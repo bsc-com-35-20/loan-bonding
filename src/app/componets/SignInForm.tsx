@@ -44,7 +44,6 @@ const SignInForm = () => {
   useEffect(() => {
     if (status === 'authenticated') {
       
-      setMessage('You are now logged in');
     }
   }, [status]);
   
