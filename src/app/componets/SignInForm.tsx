@@ -44,7 +44,7 @@ const SignInForm = () => {
   useEffect(() => {
     if (status === 'authenticated') {
       
-      router.push('/Form');
+      setMessage('You are now logged in');
     }
   }, [status]);
   

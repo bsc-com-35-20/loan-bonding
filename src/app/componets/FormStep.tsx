@@ -12,8 +12,7 @@ export function FormStep(){
 
     switch(step){
 
-        case 1:
-            
+        case 1: 
             return <PersonalInfor />;
         case 2:
             return <GuardianDetails />;
