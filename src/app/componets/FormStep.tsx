@@ -15,11 +15,11 @@ export function FormStep(){
         case 1:
             
             return <PersonalInfor />;
-        case 2:
-            return <BankDetails />;
-        case 3:
-            return <GuardianDetails />;
         case 4:
+            return <BankDetails />;
+        case 2:
+            return <GuardianDetails />;
+        case 3:
             return <UniversityDetails />;
         default:
             return null;

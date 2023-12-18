@@ -20,25 +20,37 @@ const SignInForm = () => {
     e.preventDefault();
     setMessage('Signing in...');
 
-    try {
-      const signInResponse = await signIn('credentials', {
-          email,
-          password,
-          redirect: false,
-      })
+   
+  try {
+    const signInResponse = await signIn('credentials', {
+      email,
+      password,
+      redirect: false,
+    });
 
-      if(!signInResponse || signInResponse.ok !== true) {
-          setMessage("Invalid credentials");
-      } else {
-          router.refresh();
-      }
+    console.log('SignIn Response:', signInResponse);
 
-  } catch(err) {
-      console.log(err);
+    if (signInResponse?.error === 'CredentialsSignin') {
+      setMessage('Invalid credentials');
+    } else if (signInResponse?.ok === true) {
+      router.refresh();
+    } else {
+      setMessage('Unable to connect. Please check your internet connection');
+    }
+  } catch (error: any) {
+    console.error('Error during sign-in:', error);
+
+    if (error.name === 'NetworkError') {
+      setMessage('Unable to connect. Please check your internet connection.');
+    } else {
+      setMessage('Unable to connect. Please check your internet connection.');
+    }
   }
-  };
+};
 
   useEffect(() => {
+
+    
     if (status === 'authenticated') {
       
       router.push('/Form');
