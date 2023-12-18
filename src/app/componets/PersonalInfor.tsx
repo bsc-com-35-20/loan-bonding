@@ -3,6 +3,8 @@ import { useForm } from 'react-hook-form';
 import { useFormState } from './FormContext';
 import './form.css';
 import { postPersonalInformation } from '../actions/users/personal-info';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 type TFormValues = {
   surname: string;
@@ -15,6 +17,8 @@ type TFormValues = {
 };
 
 export function PersonalInfor() {
+  const router = useRouter();
+  const [message, setMessage] = useState('');
   const { onHandleNext } = useFormState();
   const {
     register,
@@ -23,13 +27,9 @@ export function PersonalInfor() {
   } = useForm<TFormValues>();
 
   async function onHandleFormSubmit(data: TFormValues, ) {
-    console.log('Form submitted with data:', data);
-    console.log(data);
-
-
+    setMessage('Submitting form...');
     try {
-      // Call the function to post personal information
-      await postPersonalInformation(
+      const result = await postPersonalInformation(
         data.surname,
         data.firstname,
         data.othername,
@@ -38,11 +38,27 @@ export function PersonalInfor() {
         data.home,
         data.phonenumber
       );
-
-      onHandleNext();
+  
+      if (result.success) {
+        // Personal information created successfully
+        setMessage(result.message);
+    
+        onHandleNext();
+      } else {
+        // Handle the case where an error occurred or user ID/email is not found
+        setMessage(result.message);
+                // Redirect to login if necessary
+                if (
+                  result.message === 'User ID not found in session' ||
+                  result.message === 'User email not found in session'
+                ) {
+                  router.push('/auth/signin'); // Adjust the path as needed
+                }
+        
+      }
     } catch (error) {
-      // Handle errors, e.g., display an error message to the user
-      console.error('Error submitting form:', error);
+      console.error("Error submitting form:", error);
+      setMessage("An unexpected error occurred");
     }
   }
 
@@ -165,7 +181,9 @@ export function PersonalInfor() {
           <p className="text-red-500">{errors.phonenumber.message}</p>
         )}
       </div>
+      <p>{message}</p>
       <div className="flex justify-end">
+      
         <button
           className="h-11 px-6 bg-amber-600 text-white rounded-md"
           type="submit"
