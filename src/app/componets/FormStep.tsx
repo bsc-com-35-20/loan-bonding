@@ -12,8 +12,7 @@ export function FormStep(){
 
     switch(step){
 
-        case 1:
-            
+        case 1: 
             return <PersonalInfor />;
         case 4:
             return <BankDetails />;
@@ -21,6 +20,8 @@ export function FormStep(){
             return <GuardianDetails />;
         case 3:
             return <UniversityDetails />;
+        case 4:
+            return <BankDetails />;
         default:
             return null;
     }
