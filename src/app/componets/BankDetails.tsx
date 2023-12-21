@@ -83,7 +83,7 @@ export function BankDetails(){
          className="h-11 px-6 bg-amber-600 text-white rounded-md">Back</button>
          <button 
          type="button"
-         
+         onClick={onHandleNext}
          className="h-11 px-6 bg-amber-600 text-white rounded-md">Next</button>
         </div>
     </form>
