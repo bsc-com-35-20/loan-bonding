@@ -40,6 +40,7 @@ export function ApprovedLoan(){
          className="h-11 px-6 bg-amber-600 text-white rounded-md">Back</button>
          <button 
          type="button"
+         onClick={onHandleNext}
          className="h-11 px-6 bg-amber-600 text-white rounded-md">Submit</button>
         </div>
     </form>
