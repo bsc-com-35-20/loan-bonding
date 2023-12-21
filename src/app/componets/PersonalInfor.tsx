@@ -3,8 +3,12 @@ import { useForm } from 'react-hook-form';
 import { useFormState } from './FormContext';
 import './form.css';
 import { postPersonalInformation } from '../actions/users/personal-info';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { authOptions } from '../api/auth/[...nextauth]/route';
+import { getServerSession } from 'next-auth';
+import { checkAuthentication } from '../actions/users/checkUser';
+import { ADDRGETNETWORKPARAMS } from 'dns';
 
 type TFormValues = {
   surname: string;
@@ -26,7 +30,18 @@ export function PersonalInfor() {
     formState: { errors },
   } = useForm<TFormValues>();
 
+ 
+
+  useEffect(() => {
+    checkAuthentication().then((status) => {
+      if (status === false) {
+        router.push('/auth/signin');
+      }
+    });
+  }, [router]);
   async function onHandleFormSubmit(data: TFormValues, ) {
+
+  
     setMessage('Submitting form...');
     try {
       const result = await postPersonalInformation(
