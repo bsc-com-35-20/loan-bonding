@@ -18,15 +18,12 @@ model User {
   name         String
   universityId String
   regNumber    String @unique
+  personalInfo PersonalInfo?
+  
  
   // Add other fields as needed
 }
 
-model Session {
-  id           String @id @default(auto()) @map("_id") @db.ObjectId
-  /// Field referred in an index, but found no data to define the type.
-  sessionToken Json?  @unique
-}
 
 model University {
   id       String    @id @map("_id")
@@ -37,7 +34,7 @@ model University {
 
 // Define the Student model
 model Student {
-  id                  Int        @id @map("_id")
+  id                  String    @id @map("_id")
   firstName           String
   lastName            String
   universityId        String
@@ -58,4 +55,17 @@ model Loan {
   upkeep     Int
   stationaly Int
   students   Student[]
+}
+model PersonalInfo {
+  id            String      @id @default(auto()) @map("_id") @db.ObjectId
+  surname       String
+  firstname     String
+  othername     String
+  dateofbirth   String
+  sex           String
+  home          String
+  phonenumber   String
+ 
+  userIDD          User     @relation(fields: [userId], references: [id])
+  userId        String    @unique @db.ObjectId
 }

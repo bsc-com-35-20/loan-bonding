@@ -1,10 +1,8 @@
-
 'use client'
-
 import { signIn, useSession } from 'next-auth/react';
 import Image from 'next/image';
 import logoImage from './images.jpg';
-import './styleSignIn.css'; 
+import './styleSignIn.css';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
@@ -18,76 +16,83 @@ const SignInForm = () => {
 
   const [message, setMessage] = useState('');
 
-  const handleSubmit = async () => {
-      setMessage('Signing in...');
-      
-      try {
-          const signInResponse = await signIn('credentials', {
-              email,
-              password,
-              redirect: false,
-          })
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setMessage('Signing in...');
 
-          if(!signInResponse || signInResponse.ok !== true) {
-              setMessage("Invalid credentials");
-          } else {
-              router.refresh();
-          }
+   
+  try {
+    const signInResponse = await signIn('credentials', {
+      email,
+      password,
+      redirect: false,
+    });
 
-      } catch(err) {
-          console.log(err);
-      }
+    console.log('SignIn Response:', signInResponse);
 
-      setMessage(message);
-  };
+    if (signInResponse?.error === 'CredentialsSignin') {
+      setMessage('Invalid credentials');
+    } else if (signInResponse?.ok === true) {
+      router.refresh();
+    } else {
+      setMessage('Unable to connect. Please check your internet connection');
+    }
+  } catch (error: any) {
+    console.error('Error during sign-in:', error);
+
+    if (error.name === 'NetworkError') {
+      setMessage('Unable to connect. Please check your internet connection.');
+    } else {
+      setMessage('Unable to connect. Please check your internet connection.');
+    }
+  }
+};
 
   useEffect(() => {
-      if (status === 'authenticated') {
-          router.refresh();
-          router.push('/');
-      }
-  }, [status]);
-  const navigateToSignIn = () => {
 
+    
+    if (status === 'authenticated') {
+      
+      router.push('/Form');
+    }
+  }, [status]);
+  
+  const navigateToSignUp = () => {
+   
     router.push('/auth/signup');
   };
 
- 
-   
-
   return (
     <div className="container" id="container">
-    <div className="form-container sign-in" id="sigNin">
-      <form onSubmit={handleSubmit}>
-        <div className="login-header">
-          <Image src={logoImage} width={245} height={197} alt="Logo" />
-          <h2>SFMIS - Login</h2>
-        </div>
-        <span>Use your email to sign in</span>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <p>Don't have an account?</p><b className="hidden" onClick={navigateToSignIn}>
-          create account
-        </b>
-
-        <button type="submit">Sign In</button>
-        <p>{message}</p>
-        <div className="text-center">
-          <p>© 2023 Higher Education Students' Grants & Loans Board</p>
-        </div>
-      </form>
-    </div>
-  
+      <div className="form-container sign-in" id="sigNin">
+        <form onSubmit={handleSubmit}>
+          <div className="login-header">
+            <Image src={logoImage} width={245} height={197} alt="Logo" />
+            <h2>SFMIS - Login</h2>
+          </div>
+          <span>Use your email to sign in</span>
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <p>Don't have an account?</p>
+          <b className="hidden" onClick={navigateToSignUp}>Create account</b>
+          <br/>
+          <button type="submit">Sign In</button>
+          <p>{message}</p>
+          <div className="text-center">
+            <p>© 2023 Higher Education Students' Grants & Loans Board</p>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

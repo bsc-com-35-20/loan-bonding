@@ -15,7 +15,12 @@ const SignUpForm = () => {
   const [universityId, setUniversityId] = useState("");
   const [regNumber, setRegNumber] = useState("");
 
-  const handleSubmit = async () => {
+  const handleSubmit  = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+     if (!email || !password || !universityId || !regNumber) {
+    setMessage('Please fill in all required fields.');
+    return;
+  }
     setMessage("Signing up...");
     const message = await signUp(email, password, universityId, regNumber);
     setMessage(message);
@@ -23,7 +28,7 @@ const SignUpForm = () => {
 
     if (message === "Successfully created new user!") {
       // Redirect to the sign-in page
-      router.push("/auth/signin"); // Update the path accordingly
+      router.push("/auth/signin"); 
     }
   };
 
@@ -79,11 +84,11 @@ const SignUpForm = () => {
           >
             {message}
           </p>
-          <b className="hidden" onClick={handleSubmit}>
+          <button   type="submit">
             create account
-          </b>
+          </button>
           <p>
-            Already have an account?<a className="hidden"> Login</a>
+            Already have an account?<a href="/auth/signin"> Login</a>
           </p>{" "}
         </form>
       </div>

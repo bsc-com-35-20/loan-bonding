@@ -4,8 +4,7 @@ import { useForm } from "react-hook-form"
 import { useFormState } from "./FormContext";
 
 type TFormValues = {
-   universityname:string;
-   regno:string;
+    
    programofstudy:string;
    academicyear:string;
    yearofstudy:string;
@@ -24,20 +23,7 @@ export function UniversityDetails(){
     return <form className="space-y-6 textdd" onSubmit={handleSubmit(onHandleFormSubmit)}>
       <h1 className='text-xl font-semibold text-center'>Student's University/College Details</h1>
 
-      <div className="flex flex-col gap-1">
-
-        <label htmlFor="universityname" >Name of College/University</label>
-        <input
-         id="universityname"
-         type="text"
-         autoComplete=" "
-         placeholder="Name Of College/University"
-         className="h-11 px-4 border rounded-md"
-         {...register("universityname")}
-          />
-         
-        </div>
-      
+       
         <div className="flex flex-col gap-1">
 
         <label htmlFor="programofstudy" >Program Of Study</label>
@@ -50,19 +36,7 @@ export function UniversityDetails(){
           />
          
         </div>
-        <div className="flex flex-col gap-1">
-
-        <label htmlFor="regno" >Student Regstration Number</label>
-        <input
-         id="regno"
-         type="text"
-         placeholder="Student Registration Number"
-         className="h-11  px-4 border rounded-md"
-         {...register("regno")}
-          />
-         
-         </div>
-        <div className="flex flex-col gap-1">
+         <div className="flex flex-col gap-1">
 
         
         <label htmlFor="academicyear" >Academic Year </label>

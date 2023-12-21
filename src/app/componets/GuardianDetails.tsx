@@ -2,6 +2,7 @@
 
 import { useForm } from "react-hook-form"
 import { useFormState } from "./FormContext";
+import './form.css';
 
 type TFormValues = {
     name:string;

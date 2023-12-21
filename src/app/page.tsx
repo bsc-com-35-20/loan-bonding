@@ -23,8 +23,8 @@ function App() {
           <ul id="menuList" style={{ maxHeight: menuHeight }}>
             <li><a href="">Home</a></li>
             <li><a href="">About</a></li>
-            <li><a href="">Login</a></li>
-            <li><a href="">Sign up</a></li>
+            <li><a href="auth/signin">Login</a></li>
+            <li><a href="auth/signup">Sign up</a></li>
           </ul>
         </nav>
         <Image src={menu}  width = {300} height= {30} alt="menu" className="menu" onClick={toggleMenu} />
@@ -36,7 +36,7 @@ function App() {
           <p>Say goodbye to long queues and paperwork! Submit your bond application electronically and get a faster response.</p>
           <br />
           <br />
-          <button>Get started <img src="img/arrow.png" alt="" /></button>
+          <button><a href = "auth/signin">Get started <img src="img/arrow.png" alt="" /></a></button>
         </div>
         <div className="col-2">
           <Image src={StudentImage} width={500} height={500} className='students' alt="students" />
