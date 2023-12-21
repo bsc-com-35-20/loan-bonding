@@ -129,6 +129,10 @@ h3 {
    p {
     margin-bottom: 5px;
   }
+  .text{
+    color: #bab3b3;
+    
+  }
   .foo{
     display: flex;
     justify-content: center;
