@@ -4,10 +4,11 @@
     box-sizing: border-box;
     font-family: sans-serif;
 }
+ 
 .container{
     min-height: 100vh;
-    padding-left: 8%;
-    padding-right: 8%;
+    padding-left: 0;
+    padding-right: 0;
     overflow: hidden;
     width: 100%;
 }
@@ -114,13 +115,9 @@ button:hover{
     background-color: #c1e8ff;
     width: 100%;
 }
-footer {
-    background-color: #d8e8ec;
-    padding: 30px 0;
-    text-align: center;
-    color: #555;
-    width: 100%;
-  } h3 {
+
+h3 {
+    color: #d2d1d1;
     font-size: 1.5em;
     margin-bottom: 10px;
   }
@@ -131,6 +128,25 @@ footer {
   
    p {
     margin-bottom: 5px;
+  }
+  .foo{
+    display: flex;
+    justify-content: center;
+  }
+  .hr{
+    color: #c1e8ff;
+    transform: translateX(85%);
+    height: 10px;
+    width: 500px;
+  }
+  .footer{
+  
+  background-color:#000;
+  padding: 30px 0;
+  text-align: center;
+  color: #555;
+  width: 100%;
+  box-sizing: border-box;
   }
   
    a {
