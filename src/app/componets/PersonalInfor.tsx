@@ -120,7 +120,7 @@ export function PersonalInfor() {
         <input
           id="othername"
           type="text"
-          placeholder="Other Name"
+          placeholder="Other Name (Optional)"
           className={`h-10 px-4 border rounded-md ${
             errors.othername ? 'border-red-500' : ''
           }`}
