@@ -15,7 +15,8 @@ function App() {
   };
 
   return (
-    <div className="container">
+    <main>
+      <div className="container">
       <div className="navbar">
         <Image src={logoImage} width={200} height={152} alt="Logo" />
         <nav>
@@ -41,13 +42,18 @@ function App() {
           <Image src={StudentImage} width={500} height={500} className='students' alt="students" />
         </div>
       </div>
+      </div>
       <div className="links">
         
-        <footer>
+        <footer className="footer">
+          
   <h3>CONTACT INFO</h3>
-  <p>You can always contact us via email or phone.</p>
   <p>Get in touch with us today!</p>
-  <address>
+  <div className='foo'>
+  <p>You can always contact us via email or phone.</p>
+  
+  </div>
+  <hr className='hr'/>   <address className='foo'>
     <p>Area 10 Off Mphonongo Street<br />
     Lilongwe<br />
     Malawi<br />
@@ -60,7 +66,8 @@ function App() {
 
         
       </div>
-    </div>
+      
+    </main>
   );
 }
 

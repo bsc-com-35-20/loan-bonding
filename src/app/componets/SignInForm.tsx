@@ -6,6 +6,7 @@ import './styleSignIn.css';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
+
 const SignInForm = () => {
   const router = useRouter();
 
@@ -62,8 +63,14 @@ const SignInForm = () => {
     router.push('/auth/signup');
   };
 
+
+
+
+
   return (
-    <div className="container" id="container">
+    
+         <div className="container" id="container">\
+         
       <div className="form-container sign-in" id="sigNin">
         <form onSubmit={handleSubmit}>
           <div className="login-header">
@@ -94,7 +101,7 @@ const SignInForm = () => {
         </form>
       </div>
     </div>
-  );
+      );
 };
 
 export default SignInForm;

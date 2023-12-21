@@ -1,0 +1,153 @@
+body {
+    padding: 0;
+    margin: 0;
+      text-align: center;
+      
+      background: #EBF0F5;
+    }
+    img{
+      position:absolute;
+      padding:0;
+      margin: 0;
+      display: flex;
+      transform: translateY(0);
+      border-radius: 100%;
+    }
+    
+  
+  .logo{
+    width: 150px;
+    cursor: pointer;
+    margin: 30px 0;
+  }
+  .navbar{
+    position:absolute;
+    display:flex;
+    justify-content: center;
+  }
+  
+  nav{
+    flex: 1;
+    text-align: right;
+  }
+  nav ul li{
+    
+    list-style: none;
+    display: inline-block;
+    margin-right: 30px;
+  }
+  nav ul li a{
+    text-decoration: none;
+    color: #000;
+    font-size: 18px;
+  
+  }
+  nav ul li a:hover{
+    color: #1977ae;
+  }
+  .row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 100px 0;
+  }
+  .col-1{
+     position: relative;
+    flex-basis: 50%;
+    margin-left: 50px;
+  }
+  .col-1 h2{
+      font-size: 54px;
+  }
+  .col-1 h3{
+    font-size: 24px;
+    color: #291c1c;
+    margin: 20px 0 10px;
+  }
+  .col-1 p{
+    color: #1e1d1c;
+    font-weight: 100;
+  }
+  .col-1 h4{
+    margin: 20px 0 30px;
+  }
+    h1 {
+      color: #88B04B;
+      font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+      font-weight: 900;
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+    
+    p {
+      color: #404F5E;
+      font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+      font-size: 20px;
+      margin: 0;
+    }
+    
+    i {
+      color: #9ABC66;
+      font-size: 100px;
+      line-height: 200px;
+      margin-left: -15px;
+    }
+    
+    .card {
+      background: white;
+      padding: 60px;
+      border-radius: 4px;
+      box-shadow: 0 2px 3px #C8D0D8;
+      display: inline-block;
+      transform: translateY(10%);
+      margin: 30px;;
+    }
+    
+    .circle {
+      border-radius: 200px;
+      height: 200px;
+      width: 200px;
+      background: #F8FAF5;
+      margin: 0 auto;
+    }
+    body {
+      margin: 0;
+      font-family: 'Nunito Sans', sans-serif;
+    }
+    @media only screen and (max-width: 700px){
+      nav ul{
+         width: 100%;
+         background: linear-gradient( #f7a140 , #ffe627);
+         position: absolute;
+         top: 75px;
+         right: 0;
+         z-index: 2;
+      }
+      nav ul li{
+         display: block;
+         margin-bottom: 10px;
+         margin-top: 10px;
+      }
+      nav ul li a{
+         color: #Fff;
+      }
+      .menu{
+         display: block;
+      }
+      .row{
+         flex-direction: column-reverse;
+         margin: 50px 0;
+      }
+      #menuList{
+         overflow: hidden;
+         transition: 0.5s;
+      }
+      .col-1 h2{
+         font-size: 48px;
+      }
+      .col-2 .controller{
+         margin: 20px 0 40px;
+         flex-basis: 100%;
+      }
+  }
+    
