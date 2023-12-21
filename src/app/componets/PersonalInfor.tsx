@@ -124,7 +124,7 @@ export function PersonalInfor() {
           className={`h-10 px-4 border rounded-md ${
             errors.othername ? 'border-red-500' : ''
           }`}
-          {...register('othername', { required: 'Other Name is required' })}
+          {...register('othername')}
         />
         {errors.othername && (
           <p className="text-red-500">{errors.othername.message}</p>
