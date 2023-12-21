@@ -27,7 +27,7 @@ const SignUpForm = () => {
     console.log("Message:", message);
 
     if (message === "Successfully created new user!") {
-      // Redirect to the sign-in page
+      
       router.push("/auth/signin"); 
     }
   };
