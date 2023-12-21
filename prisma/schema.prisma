@@ -12,14 +12,18 @@ datasource db {
 }
 
 model User {
-  id           String        @id @default(auto()) @map("_id") @db.ObjectId
-  email        String        @unique
+  id           String             @id @default(auto()) @map("_id") @db.ObjectId
+  email        String             @unique
   passwordHash String
   name         String
   universityId String
-  regNumber    String        @unique
+  regNumber    String             @unique
   personalInfo PersonalInfo?
   bankinfo     BankDetails?
+  uni          UniversityDetails?
+  guardinan    GuardianDetails?
+  upkeep             String
+  fees               String
 
   // Add other fields as needed
 }
@@ -40,19 +44,22 @@ model Student {
   regestrationNumber String     @unique
   studentEmail       String     @unique
   university         University @relation(fields: [universityId], references: [id])
-  hasFees            Boolean
-  hasUpkeep          Boolean
-  hasStationaly      Boolean
-  loan               Loan?      @relation(fields: [loanId], references: [id])
-  loanId             Int?
+  upkeep             upkeep?
+  fees               Fees?
+
 }
 
-model Loan {
-  id         Int       @id @map("_id")
-  fees       Int
-  upkeep     Int
-  stationaly Int
-  students   Student[]
+model Fees {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  regNumber String  @unique
+  student   Student @relation(fields: [regNumber], references: [regestrationNumber])
+}
+
+model upkeep {
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  regNumber String  @unique
+  student   Student @relation(fields: [regNumber], references: [regestrationNumber])
 }
 
 model PersonalInfo {
@@ -77,4 +84,25 @@ model BankDetails {
   accountnumber String
   userIDD       User   @relation(fields: [userId], references: [id])
   userId        String @unique @db.ObjectId
+}
+
+model UniversityDetails {
+  id             String @id @default(auto()) @map("_id") @db.ObjectId
+  programofstudy String
+
+  academicyear String
+  yearofstudy  String
+  userIDD      User   @relation(fields: [userId], references: [id])
+  userId       String @unique @db.ObjectId
+}
+
+model GuardianDetails {
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  Address     String
+  home        String
+  phonenumber String
+  occupation  String
+  userIDD     User   @relation(fields: [userId], references: [id])
+  userId      String @unique @db.ObjectId
 }
