@@ -168,7 +168,7 @@ export function PersonalInfor() {
         <label htmlFor="phonenumber">Phone Number</label>
         <input
           id="phonenumber"
-          type="text"
+          type="number"
           placeholder="Phone Number"
           className={`h-10 px-4 border rounded-md ${
             errors.phonenumber ? 'border-red-500' : ''
