@@ -16,8 +16,6 @@ export function FormStep(){
 
         case 1: 
             return <PersonalInfor />;
-        case 4:
-            return <BankDetails />;
         case 2:
             return <GuardianDetails />;
         case 3:
