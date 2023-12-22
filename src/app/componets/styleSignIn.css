@@ -20,7 +20,8 @@ h2{
     position: relative;
     overflow: hidden;
     width: 520px;
-    min-height: 580px;
+    min-height: 400px;
+    max-height: 580px;
 }
 .container p {
     font-size: 14px;
