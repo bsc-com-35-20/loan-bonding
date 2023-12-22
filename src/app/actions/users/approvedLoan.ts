@@ -36,7 +36,7 @@ export const postApproveLoans = async (loanType: string) => {
               id: getuser.id,
             },
             data: {
-              fees: "650000", // Update with the appropriate field in your schema
+              fees: "650000", // Update fees
               upkeep: "350000", // Update with the appropriate field in your schema
             },
           });
@@ -60,7 +60,7 @@ export const postApproveLoans = async (loanType: string) => {
 
           return {
             success: true,
-            message: `User already has an existing loan of type ${loanType}. Loan information updated successfully`,
+            message: `User already has an existing fees loan. Loan information updated successfully`,
           };
         } else if (existingUpkeep) {
           // User's regNumber is available in upkeep table only
@@ -77,14 +77,16 @@ export const postApproveLoans = async (loanType: string) => {
 
           return {
             success: true,
-            message: `User already has an existing loan of type ${loanType}. Loan information updated successfully`,
+            message: `User already has an existing upkeep loan. Loan information updated successfully`,
           };
         }
 
         // User does not have an existing loan of the selected type
         return {
           success: false,
-          message: `User does not have an existing loan of type ${loanType}`,
+          message: `Sorry, you have not been given  ${
+            loanType === "1" ? "fees" : loanType === "2" ? "upkeep" : ""
+          } loan.`,
         };
       } else {
         return { success: false, message: "User ID or regNumber not found in session" };
