@@ -1,6 +1,6 @@
 'use client'
 
-import '../terms/terms.css'
+
 import { useRouter } from 'next/navigation';
 
 export default function TermsAndConditions() {
@@ -11,9 +11,39 @@ export default function TermsAndConditions() {
     router.push('/Form');
   };
 
+  const containerStyle = {
+    height : '100vh',
+    maxWidth: '800px',
+    margin: '0 auto',
+    padding: '20px',
+    fontFamily: 'Arial, sans-serif',
+  };
+
+  /*const headingStyle = {
+    textAlign: 'center',
+  };
+
+  const subheadingStyle = {
+    marginTop: '20px',
+  };
+*/
+  const paragraphStyle = {
+    marginBottom: '15px',
+  };
+
+  const buttonStyle = {
+    padding: '10px 20px',
+    border: 'none',
+    borderRadius: '5px',
+    backgroundColor: 'orange',
+    color: 'white',
+    cursor: 'pointer',
+  };
+
+
   return (
-    <div className='terms'>
-     <h1>TERMS AND CONDITIONS</h1>
+    <div style={containerStyle}className='terms'>
+     <h1 >TERMS AND CONDITIONS</h1>
      <br/>
         <h2>1. Repayment Timeline</h2>
         <p >
@@ -24,7 +54,7 @@ export default function TermsAndConditions() {
         </p>
   
         <h2 >2. Repayment Period</h2>
-        <p>
+        <p style={paragraphStyle}>
           The loan shall be repaid over a maximum period of five (5) years commencing two (2)
           years after completion of studies, beyond which the Board will have the right to take
           legal action.
@@ -86,7 +116,7 @@ export default function TermsAndConditions() {
         be required to be submitted to the Secretariat.
       </p>
       <br/>
-      <button onClick={navigateToForm}>
+      <button style={buttonStyle} onClick={navigateToForm}>
             I Accept the Terms and Conditions
           </button>
       <div>
