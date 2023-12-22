@@ -66,7 +66,7 @@ model PersonalInfo {
   id          String @id @default(auto()) @map("_id") @db.ObjectId
   surname     String
   firstname   String
-  othername   String
+  othername   String?
   dateofbirth String
   sex         String
   home        String

@@ -22,6 +22,8 @@ export function FormStep(){
         case 3:
             return <UniversityDetails />;
         case 4:
+            return <BankDetails />;
+        case 5:
             return <ApprovedLoan />;
         
         default:

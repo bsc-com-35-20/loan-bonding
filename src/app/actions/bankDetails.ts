@@ -22,7 +22,6 @@ export const postBankDetails = async (
           email: session.user.email,
         },
       });
-console.log(accountnumber)
       // Check if getuser and getuser.id are defined and non-null
       if (getuser?.id) {
         const existingBankDeatils = await prisma.bankDetails.findUnique({

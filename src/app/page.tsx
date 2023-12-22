@@ -6,6 +6,7 @@ import logoImage from './images.jpg';
 import menu from './menu.png'
 import StudentImage from './image_by_url.jpeg';
 
+
 function App() {
   const [menuHeight, setMenuHeight] = useState('0px');
 
@@ -44,26 +45,25 @@ function App() {
       </div>
       </div>
       <div className="links">
-        
-        <footer className="footer">
+      <footer className="footer">
           
-  <h3>CONTACT INFO</h3>
-  <p>Get in touch with us today!</p>
-  <div className='foo'>
-  <p>You can always contact us via email or phone.</p>
-  
-  </div>
-  <hr className='hr'/>   <address className='foo'>
-    <p>Area 10 Off Mphonongo Street<br />
-    Lilongwe<br />
-    Malawi<br />
-    +265 1 795 955 / 979<br />
-    +265 885890520<br />
-    <a href="mailto:heslgbsecretariat@heslgb.com">heslgbsecretariat@heslgb.com</a></p>
-  </address>
-  <p>&copy; 2023 Loans Board. All rights reserved.</p>
-</footer>
-
+          <h3>CONTACT INFO</h3>
+          <p>Get in touch with us today!</p>
+          <div className='foo'>
+          <p>You can always contact us via email or phone.</p>
+          
+          </div>
+          <hr className='hr'/>   <address className='foo'>
+            <p className='text'>Area 10 Off Mphonongo Street<br />
+            Lilongwe<br />
+            Malawi<br />
+            +265 1 795 955 / 979<br />
+            +265 885890520<br />
+            <a href="mailto:heslgbsecretariat@heslgb.com">heslgbsecretariat@heslgb.com</a></p>
+          </address>
+          <p>&copy; 2023 Loans Board. All rights reserved.</p>
+        </footer>
+        
         
       </div>
       
