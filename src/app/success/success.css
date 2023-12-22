@@ -121,39 +121,4 @@ body {
       font-family: 'Nunito Sans', sans-serif;
     }
     @media only screen and (max-width: 700px){
-      nav ul{
-         width: 100%;
-         background: linear-gradient( #f7a140 , #ffe627);
-         position: absolute;
-         top: 75px;
-         right: 0;
-         z-index: 2;
-      }
-      nav ul li{
-         display: block;
-         margin-bottom: 10px;
-         margin-top: 10px;
-      }
-      nav ul li a{
-         color: #Fff;
-      }
-      .menu{
-         display: block;
-      }
-      .row{
-         flex-direction: column-reverse;
-         margin: 50px 0;
-      }
-      #menuList{
-         overflow: hidden;
-         transition: 0.5s;
-      }
-      .col-1 h2{
-         font-size: 48px;
-      }
-      .col-2 .controller{
-         margin: 20px 0 40px;
-         flex-basis: 100%;
-      }
-  }
-    
+    }
