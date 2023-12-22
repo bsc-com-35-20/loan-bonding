@@ -3,7 +3,9 @@
 import { useForm } from "react-hook-form"
 import { useFormState } from "./FormContext";
 import "./dropdown.css";
-import router, { useRouter } from "next/navigation";
+import { useState } from "react";
+import { useRouter } from 'next/navigation';
+import { postApproveLoans } from "../actions/users/approvedLoan";
 
 
 type TFormValues = {
@@ -17,7 +19,7 @@ export function ApprovedLoan() {
   const { onHandleBack } = useFormState();
   const { handleSubmit } = useForm<TFormValues>();
   const [loanType, setLoanType] = useState<string>(''); // State to store the selected loan type
-  
+  const router= useRouter();
   const [message, setMessage ] = useState('')
 
   const onHandleFormSubmit = async () => {
@@ -44,7 +46,11 @@ export function ApprovedLoan() {
       // You might want to display an error message to the user
     }
   };
-
+    
+  const navigateToSuccess = () => {
+   
+    router.push('/componets/success');
+  };
   return (
     <form className="space-y-6 textdd" onSubmit={handleSubmit(onHandleFormSubmit)}>
       <h1 className="text-xl font-semibold text-center">Approved Loan</h1>
@@ -80,7 +86,7 @@ export function ApprovedLoan() {
          className="h-11 px-6 bg-amber-600 text-white rounded-md">Back</button>
          <button 
          type="button"
-         className="h-11 px-6 bg-amber-600 text-white rounded-md" onClick={navigateToSuccess}>Submit</button>
+         className="h-11 px-6 bg-amber-600 text-white rounded-md">Submit</button>
         </div>
     </form>
   );
