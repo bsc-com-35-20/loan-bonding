@@ -22,7 +22,7 @@ model User {
   bankinfo     BankDetails?
   uni          UniversityDetails?
   guardinan    GuardianDetails?
-  upkeep            String?
+  upkeep             String?
   fees               String?
 
   // Add other fields as needed
