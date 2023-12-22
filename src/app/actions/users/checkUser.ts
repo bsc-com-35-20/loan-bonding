@@ -1,6 +1,6 @@
 'use server'
 
-import authOptions from "@/app/api/auth/[...nextauth]/options";
+import { authOptions } from '@/app/actions/users/options';
 import { getServerSession } from "next-auth";
 
 export const checkAuthentication = async () => {
