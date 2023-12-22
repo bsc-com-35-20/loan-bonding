@@ -20,7 +20,7 @@ export function ApprovedLoan() {
 
   const onHandleFormSubmit = async () => {
     setMessage("Submiting form...")
-    // Ensure that a loan type is selected
+    
     if (!loanType) {
       // Display an error message or handle it as needed
       console.error('Please select a loan type');
@@ -43,10 +43,7 @@ export function ApprovedLoan() {
     }
   };
     
-  const navigateToSuccess = () => {
-   
-    router.push('/componets/success');
-  };
+  
   return (
     <form className="space-y-6 textdd" onSubmit={handleSubmit(onHandleFormSubmit)}>
       <h1 className="text-xl font-semibold text-center">Approved Loan</h1>

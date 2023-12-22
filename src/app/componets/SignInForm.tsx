@@ -54,7 +54,7 @@ const SignInForm = () => {
     
     if (status === 'authenticated') {
       
-      router.push('/Form');
+      router.push('/terms');
     }
   }, [status]);
   
