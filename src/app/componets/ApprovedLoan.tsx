@@ -38,7 +38,11 @@ export function ApprovedLoan() {
       console.error('Error approving loans:', result.message);
     }
   };
-
+    
+  const navigateToSuccess = () => {
+   
+    router.push('/componets/success');
+  };
   return (
     <form className="space-y-6 textdd" onSubmit={handleSubmit(onHandleFormSubmit)}>
       <h1 className="text-xl font-semibold text-center">Approved Loan</h1>

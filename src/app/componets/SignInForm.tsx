@@ -87,7 +87,7 @@ const SignInForm = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <p>Don't have an account?</p>
-          <b className="hidden" onClick={navigateToSignUp}>Create account</b>
+          <b onClick={navigateToSignUp}>Create account</b>
           <br/>
           <button type="submit">Sign In</button>
           <p>{message}</p>
