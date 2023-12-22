@@ -11,7 +11,7 @@ function App() {
   const [menuHeight, setMenuHeight] = useState('0px');
 
   const toggleMenu = () => {
-    const newHeight = menuHeight === '0px' ? '130px' : '0px';
+    const newHeight = menuHeight === '0px' ? '145px' : '0px';
     setMenuHeight(newHeight);
   };
 
