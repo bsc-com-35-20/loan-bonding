@@ -6,7 +6,7 @@ import jwt from 'jsonwebtoken'
 import { JWT } from "next-auth/jwt";
 import NextAuth from "next-auth/next";
 
- const authOptions: AuthOptions = {
+ export const authOptions: AuthOptions = {
     providers: [
         CredentialsProvider({
             name: 'credentials',
@@ -105,4 +105,3 @@ import NextAuth from "next-auth/next";
 }
 
 
-export default authOptions;

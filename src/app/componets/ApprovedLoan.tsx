@@ -34,6 +34,7 @@ export function ApprovedLoan() {
     if (result.success) {
       // Continue with navigation or other actions
       setMessage(result.message);
+      console.log(result.success)
       router.push('/success')
       
     } else {

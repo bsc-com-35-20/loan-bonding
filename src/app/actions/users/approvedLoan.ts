@@ -1,8 +1,14 @@
 'use server'
 
-import authOptions from "@/app/api/auth/[...nextauth]/options";
+import { authOptions } from '@/app/actions/users/options';
 import prisma from "@/app/lib/prisma";
 import { getServerSession } from "next-auth";
+
+
+
+// Import statements...
+
+// Import statements...
 
 export const postApproveLoans = async (loanType: string) => {
   try {
@@ -30,24 +36,24 @@ export const postApproveLoans = async (loanType: string) => {
         });
 
         if (existingFees && existingUpkeep) {
-          // User's regNumber is available in both fees and upkeep tables
+          // User exists in both fees and upkeep tables
           // Update the user's fees and upkeep fields accordingly
           await prisma.user.update({
             where: {
               id: getuser.id,
             },
             data: {
-              fees: "650000", // Update fees
+              fees: "650000", // Update with the appropriate field in your schema
               upkeep: "350000", // Update with the appropriate field in your schema
             },
           });
 
           return {
             success: true,
-            message: ` Loan information updated successfully`,
+            message: `User already has existing loans of both types. Loan information updated successfully`,
           };
-        } else if (existingFees) {
-          // User's regNumber is available in fees table only
+        } else if (existingFees && loanType === "1") {
+          // User exists in fees table only and selected "Fees"
           // Update the user's fees field accordingly
           await prisma.user.update({
             where: {
@@ -61,10 +67,10 @@ export const postApproveLoans = async (loanType: string) => {
 
           return {
             success: true,
-            message: ` Loan information updated successfully`,
+            message: `User already has an existing fees loan. Loan information updated successfully`,
           };
-        } else if (existingUpkeep) {
-          // User's regNumber is available in upkeep table only
+        } else if (existingUpkeep && loanType === "2") {
+          // User exists in upkeep table only and selected "Upkeep"
           // Update the user's upkeep field accordingly
           await prisma.user.update({
             where: {
@@ -78,17 +84,17 @@ export const postApproveLoans = async (loanType: string) => {
 
           return {
             success: true,
-            message: `Loan information updated successfully`,
+            message: `User already has an existing upkeep loan. Loan information updated successfully`,
+          };
+        } else {
+          // User does not have an existing loan of the selected type
+          return {
+            success: false,
+            message: `Sorry, you have not been given a ${
+              loanType === "1" ? "fees" : loanType === "2" ? "upkeep" : ""
+            } loan.`,
           };
         }
-
-        // User does not have an existing loan of the selected type
-        return {
-          success: false,
-          message: `Sorry, you have not been given  ${
-            loanType === "1" ? "fees" : loanType === "2" ? "upkeep" : ""
-          } loan.`,
-        };
       } else {
         return { success: false, message: "User ID or regNumber not found in session" };
       }
@@ -103,3 +109,4 @@ export const postApproveLoans = async (loanType: string) => {
     };
   }
 };
+
