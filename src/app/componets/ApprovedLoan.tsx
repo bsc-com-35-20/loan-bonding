@@ -1,10 +1,8 @@
-"use client";
-
-import { useForm } from "react-hook-form"
-import { useFormState } from "./FormContext";
-import "./dropdown.css";
-import router, { useRouter } from "next/navigation";
-
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useFormState } from './FormContext';
+import { postApproveLoans } from '../actions/users/approvedLoan';
+ // Adjust the path
 
 type TFormValues = {
   bankname: string;
@@ -73,15 +71,23 @@ export function ApprovedLoan() {
         readOnly
       /> */}
 
-        <div className="flex justify-end gap-4">
-         <button 
-         type="button" 
-         onClick={onHandleBack}
-         className="h-11 px-6 bg-amber-600 text-white rounded-md">Back</button>
-         <button 
-         type="button"
-         className="h-11 px-6 bg-amber-600 text-white rounded-md" onClick={navigateToSuccess}>Submit</button>
-        </div>
+      <div className="flex justify-end gap-4">
+        <button
+          type="button"
+          onClick={onHandleBack}
+          className="h-11 px-6 bg-amber-600 text-white rounded-md"
+        >
+          Back
+        </button>
+        <button
+          type="submit"
+          className="h-11 px-6 bg-amber-600 text-white rounded-md"
+        >
+          Submit
+        </button>
+       
+      </div>
+      <p>{message}</p>
     </form>
   );
 }
