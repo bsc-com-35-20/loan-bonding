@@ -5,10 +5,7 @@ import './form.css';
 import { postPersonalInformation } from '../actions/users/personal-info';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { authOptions } from '../api/auth/[...nextauth]/route';
-import { getServerSession } from 'next-auth';
 import { checkAuthentication } from '../actions/users/checkUser';
-import { ADDRGETNETWORKPARAMS } from 'dns';
 
 type TFormValues = {
   surname: string;
