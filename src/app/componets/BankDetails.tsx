@@ -143,7 +143,6 @@ export function BankDetails() {
         </button>
         <button
           className="h-11 px-6 bg-amber-600 text-white rounded-md"
-          onClick={onHandleNext}
           type="submit"
         >
           Next
