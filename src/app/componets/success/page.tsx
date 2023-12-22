@@ -1,17 +1,17 @@
 import React from 'react';
 import './success.css'; // Import the CSS file assuming it's in the same directory
-
+import Image from 'next/image';
+import logoImage from '../images.jpg';
 function SuccessComponent() {
   return (
     <div>
       <div className="navbar">
-        <img src="images.jpg" width="100" height="96" alt="Logo" />
+        <Image src={logoImage} width="100" height="96" alt="Logo" />
         <nav>
           <ul id="menuList" style={{ maxHeight: '200px' }}>
             <li><a href="">Home</a></li>
             <li><a href="">About</a></li>
-            <li><a href="auth/signin">Login</a></li>
-            <li><a href="auth/signup">Sign up</a></li>
+            <li><a href="/auth/signout">Sign Out</a></li>
           </ul>
         </nav>
       </div>

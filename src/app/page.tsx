@@ -23,7 +23,7 @@ function App() {
           <ul id="menuList" style={{ maxHeight: menuHeight }}>
             <li><a href="">Home</a></li>
             <li><a href="">About</a></li>
-            <li><a href="auth/signin">Login</a></li>
+            <li><a href="auth/signin">Sign In</a></li>
             <li><a href="auth/signup">Sign up</a></li>
           </ul>
         </nav>

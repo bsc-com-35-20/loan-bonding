@@ -6,7 +6,7 @@ import { PersonalInfor } from "./PersonalInfor";
 import { UniversityDetails } from "./UniversityDetails";
 import './form.css';
 import { ApprovedLoan } from "./ApprovedLoan";
-import Success from "./success/Success";
+import Success from "./success/page";
 
 
 export function FormStep(){
@@ -21,10 +21,9 @@ export function FormStep(){
             return <GuardianDetails />;
         case 3:
             return <UniversityDetails />;
-        case 5:
+        case 4:
             return <ApprovedLoan />;
-        case 6:
-            return <Success/>
+        
         default:
             return null;
     }
