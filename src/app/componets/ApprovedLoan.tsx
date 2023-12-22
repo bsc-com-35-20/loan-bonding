@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useFormState } from './FormContext';
 import { postApproveLoans } from '../actions/users/approvedLoan';
+import { useRouter } from 'next/navigation';
 
 type TFormValues = {
   loanType: string;  // Change the type to include loanType
@@ -13,6 +14,7 @@ type TFormValues = {
 
 export function ApprovedLoan() {
   const { onHandleBack } = useFormState();
+  const router = useRouter()
   const { handleSubmit, register, formState: { errors } } = useForm<TFormValues>();
   const [message, setMessage] = useState('');
 
@@ -32,17 +34,14 @@ export function ApprovedLoan() {
     if (result.success) {
       // Continue with navigation or other actions
       setMessage(result.message);
-      onHandleBack();
+      router.push('/success')
+      
     } else {
       setMessage(result.message);
       console.error('Error approving loans:', result.message);
     }
   };
-    
-  const navigateToSuccess = () => {
-   
-    router.push('/componets/success');
-  };
+
   return (
     <form className="space-y-6 textdd" onSubmit={handleSubmit(onHandleFormSubmit)}>
       <h1 className="text-xl font-semibold text-center">Approved Loan</h1>

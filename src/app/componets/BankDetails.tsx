@@ -6,7 +6,7 @@ import "./form.css";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { checkAuthentication } from "../actions/users/checkUser";
-import { postBankDetails } from "../actions/bankDetails";
+import { postBankDetails } from "../actions/users/bankDetails";
 
 type TFormValues = {
   bankname: string;

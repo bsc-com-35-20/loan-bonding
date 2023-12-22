@@ -6,7 +6,7 @@ import { PersonalInfor } from "./PersonalInfor";
 import { UniversityDetails } from "./UniversityDetails";
 import './form.css';
 import { ApprovedLoan } from "./ApprovedLoan";
-import Success from "./success/page";
+import Success from "../success/page";
 
 
 export function FormStep(){

@@ -43,7 +43,7 @@ export const postApproveLoans = async (loanType: string) => {
 
           return {
             success: true,
-            message: `User already has existing loans of both types. Loan information updated successfully`,
+            message: ` Loan information updated successfully`,
           };
         } else if (existingFees) {
           // User's regNumber is available in fees table only
@@ -60,7 +60,7 @@ export const postApproveLoans = async (loanType: string) => {
 
           return {
             success: true,
-            message: `User already has an existing fees loan. Loan information updated successfully`,
+            message: ` Loan information updated successfully`,
           };
         } else if (existingUpkeep) {
           // User's regNumber is available in upkeep table only
@@ -77,7 +77,7 @@ export const postApproveLoans = async (loanType: string) => {
 
           return {
             success: true,
-            message: `User already has an existing upkeep loan. Loan information updated successfully`,
+            message: `Loan information updated successfully`,
           };
         }
 
