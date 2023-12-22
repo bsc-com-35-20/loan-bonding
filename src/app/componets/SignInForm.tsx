@@ -65,38 +65,42 @@ const SignInForm = () => {
 
   return (
     
-         <div className="container" id="container">\
+      <div className='fullpage'>
          
-      <div className="form-container sign-in" id="sigNin">
-        <form onSubmit={handleSubmit}>
-          <div className="login-header">
-            <Image src={logoImage} width={245} height={197} alt="Logo" />
-            <h2>SFMIS - Login</h2>
-          </div>
-          <span>Use your email to sign in</span>
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <p>Don't have an account?</p>
-          <b onClick={navigateToSignUp}>Create account</b>
-          <br/>
-          <button type="submit">Sign In</button>
-          <p>{message}</p>
-          <div className="text-center">
-            <p>© 2023 Higher Education Students' Grants & Loans Board</p>
-          </div>
-        </form>
+         <div className="container" id="container">
+         
+         <div className="form-container sign-in" id="sigNin">
+           <form onSubmit={handleSubmit}>
+             <div className="login-header">
+               <Image src={logoImage} width={245} height={197} alt="Logo" />
+               <h2>SFMIS - Login</h2>
+             </div>
+             <span>Use your email to sign in</span>
+             <input
+               type="email"
+               placeholder="Email"
+               value={email}
+               onChange={(e) => setEmail(e.target.value)}
+             />
+             <input
+               type="password"
+               placeholder="Password"
+               value={password}
+               onChange={(e) => setPassword(e.target.value)}
+             />
+             <p>Don't have an account?</p>
+             <b onClick={navigateToSignUp}>Create account</b>
+             <br/>
+             <button type="submit">Sign In</button>
+             <p>{message}</p>
+             <div className="text-center">
+               <p>© 2023 Higher Education Students' Grants & Loans Board</p>
+             </div>
+           </form>
+         </div>
+       </div>
+
       </div>
-    </div>
       );
 };
 

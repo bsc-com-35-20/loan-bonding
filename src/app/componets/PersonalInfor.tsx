@@ -148,17 +148,16 @@ export function PersonalInfor() {
         )}
       </div>
       <div className="flex flex-col gap-1">
-        <label htmlFor="sex">Sex</label>
-        <input
-          id="sex"
-          type="text"
-          placeholder="Sex"
-          className={`h-10 px-4 border rounded-md ${
-            errors.sex ? 'border-red-500' : ''
-          }`}
-          {...register('sex', { required: 'Sex is required' })}
-        />
-        {errors.sex && <p className="text-red-500">{errors.sex.message}</p>}
+      <label htmlFor="sex">Sex</label>
+        <select className={`h-10 px-4 border rounded-md ${ errors.sex ? 'border-red-500': ''}`} 
+        {...register('sex',{required:'Sex is required'})}>
+        <option value="" disabled selected>Select Gender</option>
+       <option value="male" >Male</option>
+       <option value="Female">Female</option>
+       
+       
+        </select>
+        {errors.sex && <p className='text-red-500'>{errors.sex.message}</p>}
       </div>
       <div className="flex flex-col gap-1">
         <label htmlFor="home">
